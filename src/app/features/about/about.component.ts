@@ -9,10 +9,8 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
-    <section id="about" class="section bg-slate-950/40 border-t border-slate-900">
+    <section id="about" class="section section-alt">
       <div class="container">
-        
-        <!-- Section Header -->
         <div class="section-header">
           <div class="section-eyebrow">
             <app-icon name="shield" [size]="14"></app-icon>
@@ -22,84 +20,231 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
           <p class="section-subtitle">{{ t().about.intro }}</p>
         </div>
 
-        <!-- Main Narrative & Principles Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-          
-          <!-- Narrative Left Column -->
-          <div class="lg:col-span-5 flex flex-col gap-5">
-            <div class="glass-card p-6 sm:p-8">
-              <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                <span>The Engineering Journey</span>
+        <div class="about-grid">
+          <div class="about-story">
+            <article class="surface story">
+              <h3 class="story-title">
+                <span class="accent-bar"></span>
+                {{ t().about.journeyTitle }}
               </h3>
-              <p class="text-slate-300 leading-relaxed mb-4 text-sm sm:text-base">
-                {{ t().about.p1 }}
-              </p>
-              <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
-                {{ t().about.p2 }}
-              </p>
+              <p class="story-p">{{ t().about.p1 }}</p>
+              <p class="story-p muted">{{ t().about.p2 }}</p>
 
-              <!-- Quick Highlights Box -->
-              <div class="mt-6 pt-6 border-t border-slate-800/80 flex flex-col gap-3 font-mono text-xs text-slate-300">
-                <div class="flex items-center gap-2">
-                  <app-icon name="check" [size]="14" color="#10b981"></app-icon>
-                  <span>Specialist in Node.js, NestJS, Go, Python & SQL</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <app-icon name="check" [size]="14" color="#10b981"></app-icon>
-                  <span>Production cloud architecture on AWS & Docker</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <app-icon name="check" [size]="14" color="#10b981"></app-icon>
-                  <span>Former Web Technologies Instructor at Unicolombo</span>
-                </div>
-              </div>
-            </div>
+              <ul class="dim-siblings highlights">
+                @for (item of t().about.highlights; track item; let last = $last) {
+                  <li [class.feature]="last">
+                    <span class="check">
+                      <app-icon [name]="last ? 'globe' : 'check'" [size]="13" [color]="last ? '#E2E8F0' : '#5EEAD4'"></app-icon>
+                    </span>
+                    <span>{{ item }}</span>
+                  </li>
+                }
+              </ul>
+            </article>
 
-            <!-- Quote Card -->
-            <div class="p-6 rounded-2xl bg-gradient-to-br from-cyan-950/20 to-slate-900 border border-cyan-500/20 text-slate-300 italic text-sm">
-              <span class="text-cyan-400 text-2xl font-serif leading-none block mb-1">“</span>
-              Great backend code is rarely flashy. It is predictable, self-healing under extreme spikes, guarded against race conditions, and effortless for other developers to extend with confidence.
-              <span class="block mt-3 font-mono text-xs text-cyan-400 not-italic font-semibold">— Cesar Bermudez Sierra</span>
-            </div>
+            <blockquote class="quote">
+              <span class="quote-mark">“</span>
+              <p>{{ t().about.quote }}</p>
+              <cite>— Cesar Bermudez Sierra</cite>
+            </blockquote>
           </div>
 
-          <!-- Principles Right Column: 4 Cards -->
-          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            @for (principle of t().about.principles; track principle.title) {
-              <div class="glass-card p-6 flex flex-col justify-between group hover:border-cyan-500/30">
-                <div>
-                  <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-500/40 flex items-center justify-center mb-4 transition-colors">
-                    <app-icon [name]="principle.icon" [size]="22" color="#38bdf8"></app-icon>
+          <div>
+            <h3 class="principles-title">{{ t().about.principlesTitle }}</h3>
+            <div class="dim-siblings principles">
+              @for (principle of t().about.principles; track principle.title) {
+                <article class="surface principle">
+                  <div class="principle-icon">
+                    <app-icon [name]="principle.icon" [size]="20" color="#5EEAD4"></app-icon>
                   </div>
-                  <h4 class="text-base font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-                    {{ principle.title }}
-                  </h4>
-                  <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    {{ principle.description }}
-                  </p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-800/60 flex items-center gap-2 font-mono text-xs text-slate-500">
-                  <span class="w-1 h-1 rounded-full bg-cyan-400"></span>
-                  <span>Production Standard</span>
-                </div>
-              </div>
-            }
+                  <h4>{{ principle.title }}</h4>
+                  <p>{{ principle.description }}</p>
+                  <span class="principle-meta">{{ t().about.principleMeta }}</span>
+                </article>
+              }
+            </div>
           </div>
-
         </div>
-
       </div>
     </section>
   `,
   styles: [`
-    .grid { display: grid; }
-    .flex { display: flex; }
-    .flex-col { flex-direction: column; }
-    .items-center { align-items: center; }
-    .justify-between { justify-content: space-between; }
-    .gap-4 { gap: 1rem; }
-    .gap-8 { gap: 2rem; }
+    .about-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
+    }
+    .about-story {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .story {
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+    }
+    .story-title {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      color: #e2e8f0;
+    }
+    .accent-bar {
+      width: 0.35rem;
+      height: 1.3rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #5eead4, #1e40af);
+    }
+    .story-p {
+      font-size: 0.97rem;
+      color: rgba(226, 232, 240, 0.8);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .story-p.muted {
+      color: rgba(226, 232, 240, 0.6);
+      margin-bottom: 0;
+    }
+    .highlights {
+      list-style: none;
+      margin-top: 1.6rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.1);
+      display: grid;
+      gap: 0.65rem;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    }
+    .highlights li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 0.35rem;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(226, 232, 240, 0.08);
+      font-size: 0.84rem;
+      line-height: 1.45;
+      color: rgba(226, 232, 240, 0.8);
+      transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+    }
+    .highlights li:hover {
+      border-color: rgba(94, 234, 212, 0.4);
+      transform: translateY(-2px);
+    }
+    .highlights li.feature {
+      background: rgba(19, 78, 74, 0.45);
+      border-color: rgba(19, 78, 74, 0.9);
+      color: #e2e8f0;
+      font-weight: 560;
+    }
+    .check {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(94, 234, 212, 0.15);
+      border: 1px solid rgba(94, 234, 212, 0.35);
+    }
+    .feature .check {
+      background: rgba(94, 234, 212, 0.85);
+      border-color: #5eead4;
+    }
+    .quote {
+      margin: 0;
+      padding: 1.5rem 1.75rem;
+      border-radius: 0.35rem;
+      background: linear-gradient(145deg, rgba(30, 64, 175, 0.35), rgba(19, 78, 74, 0.25));
+      border: 1px solid rgba(94, 234, 212, 0.28);
+      border-left: 3px solid #5eead4;
+    }
+    .quote p {
+      color: rgba(226, 232, 240, 0.82);
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .quote-mark {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      line-height: 1;
+      color: #5eead4;
+      margin-bottom: 0.25rem;
+    }
+    .quote cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-style: normal;
+      font-weight: 600;
+      color: #5eead4;
+    }
+    .principles-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(226, 232, 240, 0.45);
+      margin-bottom: 1rem;
+    }
+    .principles {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .principles { grid-template-columns: 1fr 1fr; }
+    }
+    .principle {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .principle-icon {
+      width: 2.6rem;
+      height: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.3rem;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(94, 234, 212, 0.28);
+      margin-bottom: 1rem;
+    }
+    .principle:hover h4 { color: #5eead4; }
+    .principle h4 {
+      transition: color 0.2s var(--ease-out);
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+      color: #e2e8f0;
+    }
+    .principle p {
+      font-size: 0.84rem;
+      color: rgba(226, 232, 240, 0.55);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .principle-meta {
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.08);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: rgba(226, 232, 240, 0.4);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
   `]
 })
 export class AboutComponent {

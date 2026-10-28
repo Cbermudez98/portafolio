@@ -29,7 +29,13 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": [
+              "src/styles.css"
+            ],
+            "allowedCommonJsDependencies": [
+              "pdfmake/build/pdfmake",
+              "pdfmake/build/vfs_fonts"
+            ]
           },
           "configurations": {
             "production": {
@@ -41,8 +47,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "10kB",
+                  "maximumError": "16kB"
                 }
               ],
               "outputHashing": "all"

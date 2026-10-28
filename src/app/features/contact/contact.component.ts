@@ -1,6 +1,5 @@
 import { Component, inject, signal, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { I18nService } from '../../core/services/i18n.service';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { IconComponent } from '../../shared/components/icon/icon.component';
@@ -8,13 +7,11 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, IconComponent],
+  imports: [CommonModule, IconComponent],
   template: `
     <section id="contact" class="section">
       <div class="container">
-        
-        <!-- Section Header -->
-        <div class="section-header">
+        <div class="section-header center">
           <div class="section-eyebrow">
             <app-icon name="mail" [size]="14"></app-icon>
             <span>{{ t().contact.eyebrow }}</span>
@@ -23,253 +20,195 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
           <p class="section-subtitle">{{ t().contact.subtitle }}</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          
-          <!-- Left Column: Contact Cards & Channels -->
-          <div class="lg:col-span-5 flex flex-col gap-4">
-            
-            <!-- Email Card with Copy button -->
-            <div class="glass-card p-6 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-3">
-                  <span class="font-mono text-xs uppercase tracking-wider text-slate-400">
-                    {{ t().contact.emailLabel }}
-                  </span>
-                  <app-icon name="mail" [size]="18" color="#38bdf8"></app-icon>
-                </div>
-                <div class="font-mono text-base font-bold text-white mb-2 break-all">
-                  {{ data.personalInfo.email }}
-                </div>
-                <p class="text-xs text-slate-400 mb-4">
-                  For recruitment, technical interviews, or distributed systems consulting.
-                </p>
-              </div>
-
-              <div class="flex items-center gap-2">
-                <button 
-                  type="button"
-                  (click)="copyEmailToClipboard()"
-                  class="btn btn-secondary text-xs py-2 px-3 flex-1 flex items-center justify-center gap-2">
-                  <app-icon [name]="emailCopied() ? 'check' : 'copy'" [size]="14" [color]="emailCopied() ? '#10b981' : 'currentColor'"></app-icon>
-                  <span>{{ emailCopied() ? t().contact.emailCopied : t().contact.copyEmail }}</span>
-                </button>
-
-                <a 
-                  [href]="'mailto:' + data.personalInfo.email"
-                  class="btn btn-outline-cyan text-xs py-2 px-3">
-                  <app-icon name="external-link" [size]="14"></app-icon>
-                </a>
-              </div>
-            </div>
-
-            <!-- LinkedIn Card -->
-            <a 
-              [href]="data.personalInfo.linkedin" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="glass-card p-6 flex items-center justify-between group hover:border-cyan-500/40">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-500/40 flex items-center justify-center transition-colors">
-                  <app-icon name="linkedin" [size]="22" color="#38bdf8"></app-icon>
-                </div>
-                <div>
-                  <span class="font-mono text-xs text-slate-400 uppercase tracking-wider block">
-                    {{ t().contact.linkedinLabel }}
-                  </span>
-                  <span class="font-bold text-white text-base group-hover:text-cyan-300 transition-colors">
-                    /in/cesar-bermudez-sierra
-                  </span>
-                </div>
-              </div>
-              <app-icon name="arrow-right" [size]="18" color="#94a3b8"></app-icon>
-            </a>
-
-            <!-- GitHub Card -->
-            <a 
-              [href]="data.personalInfo.github" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="glass-card p-6 flex items-center justify-between group hover:border-cyan-500/40">
-              <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-cyan-500/40 flex items-center justify-center transition-colors">
-                  <app-icon name="github" [size]="22" color="#38bdf8"></app-icon>
-                </div>
-                <div>
-                  <span class="font-mono text-xs text-slate-400 uppercase tracking-wider block">
-                    {{ t().contact.githubLabel }}
-                  </span>
-                  <span class="font-bold text-white text-base group-hover:text-cyan-300 transition-colors">
-                    &#64;{{ data.personalInfo.handle }}
-                  </span>
-                </div>
-              </div>
-              <app-icon name="arrow-right" [size]="18" color="#94a3b8"></app-icon>
-            </a>
-
-            <!-- Location Card -->
-            <div class="glass-card p-5 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center">
-                <app-icon name="globe" [size]="18" color="#10b981"></app-icon>
-              </div>
-              <div>
-                <span class="font-mono text-xs text-slate-400 uppercase tracking-wider block">
-                  {{ t().contact.locationLabel }}
-                </span>
-                <span class="font-bold text-slate-200 text-sm">
-                  {{ t().contact.locationValue }}
-                </span>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Right Column: Interactive Contact Form -->
-          <div class="lg:col-span-7">
-            <div class="glass-card p-6 sm:p-8">
-              
-              <h3 class="text-xl font-bold text-white mb-2">
-                Send a Direct Message
-              </h3>
-              <p class="text-slate-400 text-sm mb-6">
-                Fill out the form below to initiate discussions regarding backend engineering roles or consulting.
-              </p>
-
-              @if (isSubmitted()) {
-                <div class="p-6 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-200 mb-6">
-                  <div class="flex items-center gap-3 mb-2 font-bold text-emerald-400 text-base">
-                    <app-icon name="check" [size]="20" color="#34d399"></app-icon>
-                    <span>Message Dispatched!</span>
-                  </div>
-                  <p class="text-xs sm:text-sm text-emerald-300 leading-relaxed mb-4">
-                    {{ t().contact.form.success }}
-                  </p>
-                  <button 
-                    type="button"
-                    (click)="isSubmitted.set(false)"
-                    class="btn btn-secondary text-xs py-1.5 px-3">
-                    Send Another Message
-                  </button>
-                </div>
-              } @else {
-                <form (ngSubmit)="submitForm()" class="flex flex-col gap-4">
-                  
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Name Input -->
-                    <div>
-                      <label for="contact-name" class="form-label">{{ t().contact.form.name }} *</label>
-                      <input 
-                        id="contact-name"
-                        type="text" 
-                        [(ngModel)]="formData.name"
-                        name="name"
-                        required
-                        [placeholder]="t().contact.form.namePlaceholder"
-                        class="form-input" />
-                    </div>
-
-                    <!-- Email Input -->
-                    <div>
-                      <label for="contact-email" class="form-label">{{ t().contact.form.email }} *</label>
-                      <input 
-                        id="contact-email"
-                        type="email" 
-                        [(ngModel)]="formData.email"
-                        name="email"
-                        required
-                        [placeholder]="t().contact.form.emailPlaceholder"
-                        class="form-input" />
-                    </div>
-                  </div>
-
-                  <!-- Subject Input -->
-                  <div>
-                    <label for="contact-subject" class="form-label">{{ t().contact.form.subject }} *</label>
-                    <input 
-                      id="contact-subject"
-                      type="text" 
-                      [(ngModel)]="formData.subject"
-                      name="subject"
-                      required
-                      [placeholder]="t().contact.form.subjectPlaceholder"
-                      class="form-input" />
-                  </div>
-
-                  <!-- Message Textarea -->
-                  <div>
-                    <label for="contact-message" class="form-label">{{ t().contact.form.message }} *</label>
-                    <textarea 
-                      id="contact-message"
-                      [(ngModel)]="formData.message"
-                      name="message"
-                      rows="5"
-                      required
-                      [placeholder]="t().contact.form.messagePlaceholder"
-                      class="form-input resize-y"></textarea>
-                  </div>
-
-                  <!-- Submit button -->
-                  <div class="pt-2">
-                    <button 
-                      type="submit"
-                      [disabled]="isSubmitting() || !isFormValid()"
-                      class="btn btn-primary w-full sm:w-auto py-3 px-8 text-sm font-semibold shadow-[0_0_20px_rgba(14,165,233,0.35)] disabled:opacity-50">
-                      @if (isSubmitting()) {
-                        <app-icon name="activity" [size]="16"></app-icon>
-                        <span>{{ t().contact.form.sending }}</span>
-                      } @else {
-                        <app-icon name="mail" [size]="16"></app-icon>
-                        <span>{{ t().contact.form.submit }}</span>
-                      }
-                    </button>
-                  </div>
-
-                </form>
-              }
-
+        <div class="contact-panel reveal">
+          <!-- primary: email -->
+          <div class="email-row">
+            <span class="email-label">{{ t().contact.emailLabel }}</span>
+            <a class="email" [href]="'mailto:' + data.personalInfo.email">{{ data.personalInfo.email }}</a>
+            <div class="email-actions">
+              <button type="button" class="btn btn-primary" (click)="copyEmailToClipboard()">
+                <app-icon [name]="emailCopied() ? 'check' : 'copy'" [size]="15"></app-icon>
+                <span>{{ emailCopied() ? t().contact.emailCopied : t().contact.copyEmail }}</span>
+              </button>
+              <a class="btn btn-secondary" [href]="'mailto:' + data.personalInfo.email">
+                <app-icon name="mail" [size]="15"></app-icon>
+                <span>{{ t().contact.writeEmail }}</span>
+              </a>
             </div>
           </div>
 
+          <!-- socials -->
+          <div class="dim-siblings links">
+            <a class="link" [href]="data.personalInfo.linkedin" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon"><app-icon name="linkedin" [size]="18"></app-icon></span>
+              <span class="link-text">
+                <span class="link-label">LinkedIn</span>
+                <span class="link-value">/in/cesar-bermudez-sierra</span>
+              </span>
+              <app-icon class="link-arrow" name="external-link" [size]="14"></app-icon>
+            </a>
+            <a class="link" [href]="data.personalInfo.github" target="_blank" rel="noopener noreferrer">
+              <span class="link-icon"><app-icon name="github" [size]="18"></app-icon></span>
+              <span class="link-text">
+                <span class="link-label">GitHub</span>
+                <span class="link-value">&#64;{{ data.personalInfo.handle }}</span>
+              </span>
+              <app-icon class="link-arrow" name="external-link" [size]="14"></app-icon>
+            </a>
+          </div>
+
+          <!-- location & relocation -->
+          <div class="meta">
+            <div class="meta-item">
+              <app-icon name="globe" [size]="15" color="#94a3b8"></app-icon>
+              <span class="meta-label">{{ t().contact.locationLabel }}</span>
+              <span class="meta-value">{{ t().contact.locationValue }}</span>
+            </div>
+            <span class="meta-divider" aria-hidden="true"></span>
+            <div class="meta-item">
+              <app-icon name="arrow-right" [size]="15" color="#5EEAD4"></app-icon>
+              <span class="meta-label">{{ t().contact.relocationLabel }}</span>
+              <span class="regions">
+                @for (region of t().contact.relocationRegions; track region) {
+                  <span class="region">{{ region }}</span>
+                }
+              </span>
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
   `,
   styles: [`
-    .form-label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #94a3b8;
-      margin-bottom: 0.35rem;
+    .contact-panel {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border-radius: 0.6rem;
+      border: 1px solid rgba(94, 234, 212, 0.25);
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(94, 234, 212, 0.14), transparent 60%),
+        radial-gradient(ellipse 50% 70% at 0% 100%, rgba(19, 78, 74, 0.3), transparent 60%),
+        rgba(17, 26, 46, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .email-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.6rem;
+    }
+    .email-label, .meta-label, .link-label {
       font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(226, 232, 240, 0.45);
     }
-    .form-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #f8fafc;
-      font-size: 0.9rem;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.2s ease;
+    .email {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.6vw, 2.1rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #e2e8f0;
+      overflow-wrap: anywhere;
+      background-image: linear-gradient(#5eead4, #5eead4);
+      background-size: 0% 2px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size 0.4s var(--ease-out), color 0.2s;
     }
-    .form-input:focus {
-      border-color: rgba(56, 189, 248, 0.6);
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
-      background: rgba(15, 23, 42, 0.9);
+    .email:hover { color: #5eead4; background-size: 100% 2px; }
+    .email-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
     }
-    .form-input::placeholder {
-      color: #475569;
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 0.75rem;
+      margin-top: 2rem;
     }
-    .grid { display: grid; }
-    .flex { display: flex; }
-    .flex-col { flex-direction: column; }
-    .items-center { align-items: center; }
-    .justify-between { justify-content: space-between; }
-    .gap-4 { gap: 1rem; }
-    .gap-10 { gap: 2.5rem; }
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1rem;
+      border-radius: 0.45rem;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(226, 232, 240, 0.1);
+      transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), background 0.25s;
+    }
+    .link:hover {
+      border-color: rgba(94, 234, 212, 0.5);
+      background: rgba(15, 23, 42, 0.8);
+      transform: translateY(-2px);
+    }
+    .link-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(94, 234, 212, 0.15);
+      color: #5eead4;
+      transition: background 0.25s, color 0.25s;
+    }
+    .link:hover .link-icon { background: #5eead4; color: #0f172a; }
+    .link-text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+    .link-value {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .link-arrow { color: rgba(226, 232, 240, 0.4); transition: transform 0.25s var(--ease-out), color 0.25s; }
+    .link:hover .link-arrow { color: #5eead4; transform: translate(2px, -2px); }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem 1.5rem;
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.08);
+    }
+    .meta-item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .meta-value { font-size: 0.88rem; color: rgba(226, 232, 240, 0.8); }
+    .meta-divider { width: 1px; height: 1.25rem; background: rgba(226, 232, 240, 0.12); }
+    .regions { display: inline-flex; gap: 0.35rem; }
+    .region {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(19, 78, 74, 0.55);
+      border: 1px solid rgba(19, 78, 74, 0.95);
+      color: #e2e8f0;
+    }
+    @media (max-width: 640px) {
+      .meta { flex-direction: column; }
+      .meta-divider { display: none; }
+    }
   `]
 })
 export class ContactComponent {
@@ -279,15 +218,6 @@ export class ContactComponent {
 
   public readonly t = this.i18n.t;
   public readonly emailCopied = signal<boolean>(false);
-  public readonly isSubmitting = signal<boolean>(false);
-  public readonly isSubmitted = signal<boolean>(false);
-
-  public formData = {
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  };
 
   public copyEmailToClipboard(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -296,31 +226,5 @@ export class ContactComponent {
         setTimeout(() => this.emailCopied.set(false), 2500);
       });
     }
-  }
-
-  public isFormValid(): boolean {
-    return !!(
-      this.formData.name.trim() &&
-      this.formData.email.trim() &&
-      this.formData.subject.trim() &&
-      this.formData.message.trim()
-    );
-  }
-
-  public submitForm(): void {
-    if (!this.isFormValid() || this.isSubmitting()) return;
-
-    this.isSubmitting.set(true);
-
-    setTimeout(() => {
-      this.isSubmitting.set(false);
-      this.isSubmitted.set(true);
-      // Construct mailto fallback
-      if (isPlatformBrowser(this.platformId)) {
-        const mailto = `mailto:${this.data.personalInfo.email}?subject=${encodeURIComponent(this.formData.subject)}&body=${encodeURIComponent('From: ' + this.formData.name + ' (' + this.formData.email + ')\n\n' + this.formData.message)}`;
-        window.location.href = mailto;
-      }
-      this.formData = { name: '', email: '', subject: '', message: '' };
-    }, 1200);
   }
 }

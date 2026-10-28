@@ -3,23 +3,26 @@ export const translations = {
     nav: {
       about: 'About',
       experience: 'Experience',
+      education: 'Education',
       skills: 'Skills',
-      architecture: 'System Design',
-      projects: 'Projects',
+      projects: 'GitHub',
       contact: 'Contact',
-      resume: 'Resume',
+      resume: 'Download CV',
+      generating: 'Generating…',
       switchLang: 'ES',
       currentLangLabel: 'English',
-      statusAvailable: 'Available for Senior Backend Roles'
+      statusAvailable: 'Available for Backend & Architecture Roles'
     },
     hero: {
-      availableBadge: 'Open to Senior Backend & Tech Lead Roles',
+      availableBadge: 'Open to Backend & Software Architecture Roles',
       location: 'Cartagena, Colombia • Remote Global',
-      role: 'Senior Backend Developer',
-      tagline: 'Architecting High-Throughput Distributed Systems & Resilient Cloud Infrastructures',
-      description: 'Specialized in building mission-critical microservices, low-latency APIs, event-driven architectures, and scalable database systems with Node.js, NestJS, Go, Python, and AWS.',
-      ctaProjects: 'Explore Architecture & Code',
-      ctaPlayground: 'Live API Playground',
+      role: 'Backend Developer & Software Architecture',
+      studyingBadge: 'Studying Master’s in Software Architecture',
+      tagline: 'Senior Backend Developer & Software Architecture',
+      description: 'With 7+ years of experience building high-performance cloud-native APIs and microservices using Node.js/TypeScript, Go, Python, and Java. Currently Backend Developer at Globant (American Century Investments) and pursuing a Master’s in Software Architecture.',
+      ctaProjects: 'View My Career',
+      ctaPlayground: 'View GitHub',
+      relocation: 'Open to relocation: Europe · Canada · Asia',
       ctaContact: 'Get in Touch',
       stats: {
         experience: 'Years of Experience',
@@ -27,22 +30,34 @@ export const translations = {
         throughput: 'Daily Processed Requests',
         services: 'Production Microservices'
       },
+      yearsValue: '7+',
       terminal: {
         title: 'cesar@backend-cluster ~ node system-probe.js',
         status: 'SYSTEM_STATUS: HEALTHY',
         region: 'AWS us-east-1 [Multi-AZ]',
         engine: 'Node.js v24.x | NestJS | Go | Redis | PostgreSQL',
         concurrency: 'P99 Latency: < 14ms | TPS: 12,400',
-        activeProtocols: 'gRPC • REST • GraphQL • Kafka/RabbitMQ'
+        activeProtocols: 'gRPC • REST • GraphQL • Kafka/RabbitMQ',
+        ready: 'ready for new challenges',
+        labels: { engine: 'ENGINE', infra: 'INFRASTRUCTURE', performance: 'PERFORMANCE', protocols: 'PROTOCOLS', uptime: 'UPTIME' }
       }
     },
     about: {
       eyebrow: 'ENGINEERING PHILOSOPHY',
       title: 'Reliable, Scalable, Zero-Downtime Backends',
-      intro: "I am Cesar Bermudez Sierra, a Senior Backend Developer with a deep passion for distributed computing, resilient system architecture, and high-performance server-side engineering.",
-      p1: "Over the years, I've designed and scaled systems across banking, fintech, enterprise platforms, and academic environments. My focus goes far beyond writing CRUD endpoints: I tackle race conditions, idempotency, database query optimization, asynchronous job queues, and fault-tolerant cloud infrastructure.",
-      p2: "In addition to industry engineering at companies like Globant and Pragma, I have shared knowledge as a Web Technologies instructor at Fundación Universitaria Colombo Internacional (Unicolombo), training future engineers in clean code and modern development standards.",
+      intro: "I am Cesar Bermudez Sierra, a Backend Developer with 7+ years of experience and a deep passion for distributed computing, resilient system architecture, and high-performance server-side engineering.",
+      p1: "I specialize in cloud-native APIs and microservices with Node.js/TypeScript, Go, Python, and Java on AWS (API Gateway, Lambda, ECS, EC2). I optimize systems with CloudWatch, relational and NoSQL data stores, JWT/Cognito/IAM security, and IaC with CDK, CloudFormation, and Terraform.",
+      p2: "Today I lead backend work at Globant for American Century Investments, and I am starting a Master’s in Software Architecture at Universidad de La Sabana to deepen my systems design craft. I am open to relocating to Europe, Canada, or Asia.",
       principlesTitle: 'Core Backend Principles',
+      journeyTitle: 'The Engineering Journey',
+      highlights: [
+        'Specialist in Node.js, NestJS, Go, Python & SQL',
+        'Production cloud architecture on AWS & Docker',
+        'Former Web Technologies Instructor at UNICOLOMBO',
+        'Open to relocation: Europe, Canada, or Asia'
+      ],
+      quote: 'Great backend code is rarely flashy. It is predictable, self-healing under extreme spikes, guarded against race conditions, and effortless for other developers to extend with confidence.',
+      principleMeta: 'Production Standard',
       principles: [
         {
           title: 'High Concurrency & Idempotency',
@@ -68,70 +83,463 @@ export const translations = {
     },
     experience: {
       eyebrow: 'CAREER TIMELINE',
-      title: 'Battle-Tested Engineering Experience',
-      subtitle: 'Driving backend excellence across international consulting, fintech, and high-load web architectures.',
+      title: 'Professional Experience',
+      subtitle: 'From most recent roles to earlier ones — backend engineering across Globant, client accounts, Pragma, education, and product teams.',
+      currentLabel: 'Current',
+      rolesLabel: 'roles',
+      roleLabel: 'role',
+      impactLabel: 'Impact',
+      showMore: 'View details',
+      showLess: 'Hide details',
       items: [
         {
-          id: 'globant',
+          id: 'globant-aci',
           company: 'Globant',
-          role: 'Senior Backend Engineer',
-          period: '2023 - Present',
+          role: 'Backend Developer',
+          period: 'Dec 2025 — Present',
           location: 'Remote',
           type: 'Full-Time',
-          description: 'Architecting enterprise-scale backend services and cloud integrations for top-tier global clients.',
+          description: 'Leading backend development and proposing scalable architectures for the American Century Investments account.',
           achievements: [
-            'Architected and implemented high-throughput microservices handling millions of transactions monthly with NestJS and AWS.',
-            'Refactored legacy bottlenecks, reducing API response times by up to 45% using Redis caching and database indexing.',
-            'Standardized unit and integration test coverage across squads, raising test coverage to >88% with Jest and Supertest.',
-            'Mentored junior and mid-level developers in Clean Architecture, Docker containerization, and async queues.'
+            'Lead the backend development lifecycle, delivering high-quality code and robust solutions at every stage.',
+            'Design and implement scalable architectures with Node.js, Python, and Golang for complex technical challenges.',
+            'Manage and optimize data ecosystems with PostgreSQL and Redis for high performance and reliability.',
+            'Deploy and orchestrate containerized apps on AWS, OpenShift, and Kubernetes; continuous delivery (GitOps) with ArgoCD.',
+            'Translate technical requirements into high-impact deliverables aligned with the client’s business goals.'
           ],
-          technologies: ['Node.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'Jest']
+          technologies: ['Node.js', 'Python', 'Golang', 'PostgreSQL', 'Redis', 'AWS', 'OpenShift', 'Kubernetes', 'ArgoCD']
         },
         {
-          id: 'pragma',
-          company: 'Pragma',
+          id: 'globant-io',
+          company: 'Globant',
           role: 'Backend Developer',
-          period: '2021 - 2023',
-          location: 'Remote / Colombia',
+          period: 'Sep 2024 — Dec 2025',
+          location: 'Colombia',
           type: 'Full-Time',
-          description: 'Engineered mission-critical microservices and financial transaction flows for banking clients.',
+          description: 'Led the migration of legacy services to clean architectures and built new microservices for BCP’s startup IO.',
           achievements: [
-            'Built resilient banking transaction pipelines with strict concurrency control and automated rollback mechanisms.',
-            'Migrated monolithic endpoints into domain-specific serverless and containerized microservices on AWS.',
-            'Implemented automated CI/CD deployment pipelines using GitHub Actions and Docker, reducing deployment cycle times by 60%.',
-            'Collaborated with frontend and QA teams to design clean RESTful and event-driven interfaces.'
+            'Led the migration of legacy services to clean architectures, ensuring quality and performance at every stage.',
+            'Designed and implemented new microservices aligned with industry best practices and integrated with existing systems.',
+            'Provided support and resolved critical incidents, prioritizing service continuity and stability.',
+            'Proposed modern, scalable architectures for the client’s technological challenges.',
+            'Actively participated in Scrum ceremonies, contributing to continuous process improvement.'
           ],
-          technologies: ['TypeScript', 'Node.js', 'Express', 'MySQL', 'MongoDB', 'Docker', 'AWS Lambda', 'Git']
+          technologies: ['Node.js', 'TypeScript', 'Microservices', 'Clean Architecture', 'AWS', 'Scrum']
+        },
+        {
+          id: 'aci',
+          company: 'American Century Investments',
+          role: 'Senior Backend Developer',
+          period: 'Dec 2025 — Oct 2026',
+          location: 'Cartagena, Colombia · Remote',
+          type: 'Full-Time',
+          description: 'Assigned to the American Century Investments account through Globant.',
+          achievements: [
+            'Containerized deployments & CI/CD: managed workflows with Docker, OpenShift pipelines, ArgoCD, Kubernetes pods, and cronjobs.',
+            'Architecture optimization: evaluated and profiled architectural decisions to improve backend efficiency, stability, and performance.',
+            'Maintenance & reliability: diagnosed and resolved defects promptly, keeping high service availability.',
+            'Software quality & testing: wrote comprehensive unit tests for high coverage across microservices, working closely with QA.',
+            'Security & cloud: built custom Model Context Protocol (MCP) middleware for authentication and secure access, and configured Cloudflare.'
+          ],
+          technologies: ['Docker', 'OpenShift', 'ArgoCD', 'Kubernetes', 'MCP', 'Cloudflare', 'Unit Testing']
+        },
+        {
+          id: 'freelance',
+          company: 'Freelancer.com',
+          role: 'Software Engineer Freelance',
+          period: 'May 2019 — Sep 2026',
+          location: 'Colombia · Remote',
+          type: 'Freelance',
+          description: 'Delivered multiple concurrent projects for international clients across cloud, backend, frontend, and mobile.',
+          achievements: [
+            'Architected and deployed applications on AWS (EC2, Lambda, S3, API Gateway) and GCP (Cloud Functions, App Engine, Cloud Run).',
+            'Implemented serverless solutions with Firebase (Authentication, Firestore, Cloud Functions, Hosting).',
+            'Built APIs, microservices, and enterprise apps with Node.js/TypeScript, Golang, Python, and Java Spring Boot.',
+            'Created responsive web apps with Angular and React, and cross-platform mobile apps with Ionic.'
+          ],
+          technologies: ['AWS', 'GCP', 'Firebase', 'Node.js', 'TypeScript', 'Golang', 'Python', 'Spring Boot', 'Angular', 'React', 'Ionic']
         },
         {
           id: 'unicolombo',
-          company: 'Fundación Universitaria Colombo Internacional (Unicolombo)',
-          role: 'Web Technologies Instructor & Academic Contributor',
-          period: '2020 - 2022',
-          location: 'Cartagena, Colombia',
-          type: 'Academic / Engineering',
-          description: 'Taught modern web architectures, backend technologies, and software engineering methodologies.',
+          company: 'Fundación Universitaria Colombo Internacional (UNICOLOMBO)',
+          role: 'Web Technologies Instructor',
+          period: 'Jan 2023 — Jul 2026',
+          location: 'Cartagena, Colombia · On-site',
+          type: 'Full-Time',
+          description: 'Taught web technologies and mentored students on projects and career paths.',
           achievements: [
-            'Designed and instructed the curriculum for server-side architecture, relational databases, and RESTful APIs.',
-            'Developed the academic tracking and binnacle backend platform (binnacle_back_unicolombo) for the university.',
-            'Guided over 100+ students in software engineering best practices, Git collaboration, and automated testing.'
+            'Taught Node.js, SQL, NoSQL, and AWS.',
+            'Developed and updated course materials to stay current with industry trends.',
+            'Provided one-on-one mentorship on projects and career advice.'
           ],
-          technologies: ['JavaScript', 'TypeScript', 'Node.js', 'MySQL', 'Clean Architecture', 'REST APIs']
+          technologies: ['Node.js', 'SQL', 'NoSQL', 'AWS']
         },
         {
-          id: 'go-digital',
-          company: 'Go Digital & Simbiotica Ltda',
+          id: 'io',
+          company: 'iO',
+          role: 'Backend Developer',
+          period: 'Sep 2024 — Dec 2025',
+          location: 'Cartagena, Colombia · Remote',
+          type: 'Full-Time',
+          description: 'Staff augmentation through Globant on the IO (BCP Banking) project, modernizing the digital banking ecosystem.',
+          achievements: [
+            'Architecture migration: led the end-to-end migration of legacy services to microservices with Hexagonal Architecture and Kafka.',
+            'Serverless cloud: designed highly available AWS microservices with Lambda, API Gateway, SQS, Step Functions, and DynamoDB.',
+            'Testing: unit and integration tests with Jest and Cucumber.js, achieving high coverage and fewer production incidents.',
+            'Technical leadership: rigorous pull request reviews, mentoring teammates, and critical production support.',
+            'Agile collaboration: contributed to Scrum ceremonies and proposed concrete process improvements.'
+          ],
+          technologies: ['Node.js', 'TypeScript', 'Kafka', 'Hexagonal Architecture', 'AWS Lambda', 'SQS', 'Step Functions', 'DynamoDB', 'Jest', 'Cucumber.js']
+        },
+        {
+          id: 'pragma-iii',
+          company: 'PRAGMA',
+          role: 'Advanced Backend Node.js Developer III',
+          period: 'Oct 2023 — Sep 2024',
+          location: 'Colombia · Remote',
+          type: 'Full-Time',
+          description: 'Led a team implementing AWS microservices, improving transaction efficiency and integrating CI/CD.',
+          achievements: [
+            'Led a team implementing AWS microservices (Lambda, API Gateway, SQS, DynamoDB, Aurora, Step Functions).',
+            'Improved transaction efficiency and integrated CI/CD pipelines.',
+            'Provided guidance and training to developers, strengthening team skills.'
+          ],
+          technologies: ['Node.js', 'AWS Lambda', 'API Gateway', 'SQS', 'DynamoDB', 'Aurora', 'Step Functions', 'CI/CD']
+        },
+        {
+          id: 'pragma-ii',
+          company: 'PRAGMA',
+          role: 'Advanced Backend Node.js Developer II',
+          period: 'May 2023 — Oct 2023',
+          location: 'Colombia',
+          type: 'Full-Time',
+          description: 'Built microservices for internal product management at Banco Agromercantil (BAM), Grupo Bancolombia, with secure access for external clients.',
+          achievements: [
+            'Led the development and optimization of microservices for internal product management.',
+            'Improved microservice construction by applying clean architectures.',
+            'Participated in Scrum ceremonies, giving feedback on user stories and proposing process improvements.'
+          ],
+          technologies: ['Node.js', 'TypeScript', 'Microservices', 'Clean Architecture', 'Scrum']
+        },
+        {
+          id: 'godigital',
+          company: 'Go Digital Colombia',
+          role: 'Full-stack Developer',
+          period: 'Apr 2022 — May 2023',
+          location: 'Cartagena, Colombia · Remote',
+          type: 'Full-Time',
+          description: 'Built and maintained modules across web and mobile systems under Scrum.',
+          achievements: [
+            'Developed and maintained system modules, features, and data update scripts.',
+            'Managed Firebase databases, built Angular components, and supported legacy Angular.js apps.',
+            'Built mobile apps with Ionic and backends with Node.js, TypeScript, and Express.js.',
+            'Implemented role management and authentication, and analyzed software requirements.'
+          ],
+          technologies: ['Node.js', 'TypeScript', 'Express', 'Angular', 'Ionic', 'Firebase', 'Scrum']
+        },
+        {
+          id: 'simbiotica',
+          company: 'Simbiotica Web Agency',
           role: 'Software Developer',
-          period: '2019 - 2021',
+          period: 'Mar 2021 — Apr 2022',
           location: 'Cartagena, Colombia',
           type: 'Full-Time',
-          description: 'Engineered full-stack and backend solutions for commercial products and internal management platforms.',
+          description: 'Software development from user stories with agile, iterative processes.',
           achievements: [
-            'Developed RESTful API backends powering inventory, authentication, and reporting platforms.',
-            'Optimized SQL queries and schema normalization, decreasing latency on heavy analytic reports.',
-            'Delivered secure JWT authentication, role-based access control (RBAC), and third-party webhook integrations.'
+            'Built with JavaScript (Node.js), Express.js, PHP (Laravel), Java, MySQL, and MongoDB.',
+            'Worked with stakeholders to understand requirements and business rules.',
+            'Implemented role management and authentication.'
           ],
-          technologies: ['Node.js', 'Express', 'MySQL', 'MongoDB', 'JavaScript', 'Postman']
+          technologies: ['Node.js', 'Express', 'PHP', 'Laravel', 'Java', 'MySQL', 'MongoDB']
+        },
+        {
+          id: 'autotest',
+          company: 'Autotest SAS',
+          role: 'Software Developer',
+          period: 'Jan 2019 — Mar 2021',
+          location: 'Cartagena, Colombia · On-site',
+          type: 'Full-Time',
+          description: 'Developed and tested new features, supported existing code, and managed MySQL databases and web services.',
+          achievements: [
+            'Developed and tested new features while supporting existing code.',
+            'Worked with PHP, Java, JavaScript, C#, and MySQL; managed databases and web services.',
+            'Wrote scripts to update existing system data and provided customer support.'
+          ],
+          technologies: ['PHP', 'Java', 'JavaScript', 'C#', 'MySQL', 'Web Services']
+        }
+      ]
+    },
+    education: {
+      eyebrow: 'ACADEMIC PATH',
+      title: 'Education & Certifications',
+      subtitle: 'Formal studies, ongoing master’s work, and professional certifications that back the craft.',
+      educationTitle: 'Universities & Studies',
+      certificationsTitle: 'Licenses & Certifications',
+      inProgress: 'In progress',
+      completed: 'Completed',
+      viewCredential: 'View credential',
+      filterAll: 'All',
+      showAll: 'Show all certifications',
+      showLess: 'Show fewer',
+      items: [
+        {
+          id: 'masters',
+          degree: 'Master’s in Software Architecture',
+          institution: 'Universidad de La Sabana',
+          period: 'Oct 2026 — Dec 2027',
+          location: 'Colombia',
+          description: 'Deepening expertise in software architecture, scalable system design, and advanced engineering practices.',
+          status: 'in-progress'
+        },
+        {
+          id: 'systems',
+          degree: 'Systems Engineering',
+          institution: 'Fundación Universitaria Colombo Internacional (UNICOLOMBO)',
+          period: 'Jan 2018 — May 2024',
+          location: 'Cartagena, Colombia',
+          description: 'Professional degree focused on software engineering, systems design, and applied computing.',
+          status: 'completed'
+        },
+        {
+          id: 'english',
+          degree: 'English Language Professional Program',
+          institution: 'Centro Colombo Americano de Cartagena',
+          period: 'Apr 2018 — Aug 2019',
+          location: 'Cartagena, Colombia',
+          description: 'Professional English training for academic and industry communication.',
+          status: 'completed'
+        }
+      ],
+      certifications: [
+        {
+          id: 'aws-serverless',
+          name: 'AWS Serverless Demonstrated',
+          issuer: 'AWS',
+          issued: 'Oct 2026',
+          credentialId: '81679b37-66e9-446f-ae81-c224e1eaa77a',
+          credentialUrl: 'https://www.credly.com/badges/81679b37-66e9-446f-ae81-c224e1eaa77a'
+        },
+        {
+          id: 'udemy-java',
+          name: 'Learn JAVA Programming - Beginner to Master',
+          issuer: 'Udemy',
+          issued: 'Jan 2026',
+          credentialId: 'UC-ed43a0ce-d58c-430f-aca3-f4cc6ca13399',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-ed43a0ce-d58c-430f-aca3-f4cc6ca13399/'
+        },
+        {
+          id: 'udemy-pytest',
+          name: 'Python Unit Testing Fundamentals (unittest & pytest)',
+          issuer: 'Udemy',
+          issued: 'Jan 2026',
+          credentialId: 'UC-6877fad0-d770-449b-8a24-51d3a99e3c08',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-6877fad0-d770-449b-8a24-51d3a99e3c08/'
+        },
+        {
+          id: 'udemy-py-4',
+          name: 'Python 3: Deep Dive (Part 4 - OOP)',
+          issuer: 'Udemy',
+          issued: 'Jan 2026',
+          credentialId: 'UC-82204d89-0154-40c0-ad39-3fc4ffd61ce8',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-82204d89-0154-40c0-ad39-3fc4ffd61ce8/'
+        },
+        {
+          id: 'udemy-py-3',
+          name: 'Python 3: Deep Dive (Part 3 - Dictionaries, Sets, JSON)',
+          issuer: 'Udemy',
+          issued: 'Jan 2026',
+          credentialId: 'UC-95ed0561-5e73-4524-b1a7-667ad27f1f12',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-95ed0561-5e73-4524-b1a7-667ad27f1f12/'
+        },
+        {
+          id: 'udemy-py-2',
+          name: 'Python 3: Deep Dive (Part 2 - Iterators, Generators)',
+          issuer: 'Udemy',
+          issued: 'Jan 2026',
+          credentialId: 'UC-2185eda9-d077-49d0-95e2-8ac8f0ec50e9',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-2185eda9-d077-49d0-95e2-8ac8f0ec50e9/'
+        },
+        {
+          id: 'udemy-py-1',
+          name: 'Python 3: Deep Dive (Part 1 - Functional)',
+          issuer: 'Udemy',
+          issued: 'Jan 2026',
+          credentialId: 'UC-b5e2212a-a9d8-4790-824c-b4be7d7fa5fa',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-b5e2212a-a9d8-4790-824c-b4be7d7fa5fa/'
+        },
+        {
+          id: 'udemy-fastapi',
+          name: 'FastAPI - The Complete Course 2026 (Beginner + Advanced)',
+          issuer: 'Udemy',
+          issued: 'Dec 2025',
+          credentialId: 'UC-f056eb1c-54a8-4d57-aaec-b6ee7ee65a7d',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-f056eb1c-54a8-4d57-aaec-b6ee7ee65a7d/'
+        },
+        {
+          id: 'udemy-graphql',
+          name: 'GraphQL by Example',
+          issuer: 'Udemy',
+          issued: 'Nov 2025',
+          credentialId: 'UC-59c7fb0d-d67f-463c-85c3-7c907358c85f',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-59c7fb0d-d67f-463c-85c3-7c907358c85f/'
+        },
+        {
+          id: 'udemy-go-concurrency',
+          name: 'Working with Concurrency in Go (Golang)',
+          issuer: 'Udemy',
+          issued: 'Oct 2025',
+          credentialId: 'UC-f4952489-1ce8-473e-88a0-cee0d1078fa9',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-f4952489-1ce8-473e-88a0-cee0d1078fa9/'
+        },
+        {
+          id: 'udemy-aws-dva',
+          name: 'Ultimate AWS Certified Developer Associate 2025 DVA-C02',
+          issuer: 'Udemy',
+          issued: 'Jun 2025',
+          credentialId: 'UC-321654bf-f611-437f-a545-1e4f5827ba4a',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-321654bf-f611-437f-a545-1e4f5827ba4a/'
+        },
+        {
+          id: 'udemy-go',
+          name: 'Go - The Complete Guide',
+          issuer: 'Udemy',
+          issued: 'Mar 2025',
+          credentialId: 'UC-f8400101-674a-4549-af37-b1ddb084496e',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-f8400101-674a-4549-af37-b1ddb084496e/'
+        },
+        {
+          id: 'algoexpert-systems',
+          name: 'Systems Design',
+          issuer: 'AlgoExpert',
+          issued: 'Feb 2025',
+          credentialId: 'SE-d4761d3647',
+          credentialUrl: 'https://certificate.algoexpert.io/SE-d4761d3647'
+        },
+        {
+          id: 'refactoring-guru',
+          name: 'Dive Into Refactoring',
+          issuer: 'Refactoring.Guru',
+          issued: 'Feb 2025',
+          credentialId: 'MTIxNTQy',
+          credentialUrl: 'https://refactoring.guru/cert/r/MTIxNTQy'
+        },
+        {
+          id: 'udemy-js-prototypes',
+          name: 'JavaScript Prototypes, Inheritance & Objects - 2025',
+          issuer: 'Udemy',
+          issued: 'Feb 2025',
+          credentialId: 'UC-e40aa392-5281-4032-bb58-f4a4f8169463',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-e40aa392-5281-4032-bb58-f4a4f8169463/'
+        },
+        {
+          id: 'udemy-nest-micro',
+          name: 'NestJS Microservices: Breaking a Monolith to Microservices',
+          issuer: 'Udemy',
+          issued: 'Jan 2025',
+          credentialId: 'UC-e281000b-0a50-4d9b-9481-f1b943df065c',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-e281000b-0a50-4d9b-9481-f1b943df065c/'
+        },
+        {
+          id: 'udemy-nest-master',
+          name: 'NestJS Masterclass - NodeJS Framework Backend Development',
+          issuer: 'Udemy',
+          issued: 'Nov 2024',
+          credentialId: 'UC-6718f74b-ffe5-40a2-a032-95a68785ca9f',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-6718f74b-ffe5-40a2-a032-95a68785ca9f/'
+        },
+        {
+          id: 'udemy-ts-patterns',
+          name: 'Design Patterns in TypeScript',
+          issuer: 'Udemy',
+          issued: 'Jan 2024',
+          credentialId: 'UC-7e54f79b-f6c4-4269-8a55-0ef463836cec',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-7e54f79b-f6c4-4269-8a55-0ef463836cec/'
+        },
+        {
+          id: 'efset',
+          name: 'EF SET English Certificate (B1 Intermediate)',
+          issuer: 'EF SET',
+          issued: 'May 2023',
+          credentialUrl: 'https://cert.efset.org/b8gvDf'
+        },
+        {
+          id: 'platzi-node-postgres',
+          name: 'Curso de Backend con Node.js: Base de Datos con PostgreSQL',
+          issuer: 'Platzi',
+          issued: 'May 2023',
+          credentialId: '10058771-1a47-4b99-a2b4-49b1f77933f1'
+        },
+        {
+          id: 'platzi-node-express',
+          name: 'Curso de Backend con Node.js: API REST con Express.js',
+          issuer: 'Platzi',
+          issued: 'May 2023',
+          credentialId: '87468771-2710-44b3-86a7-8f52ab305885',
+          credentialUrl: 'https://platzi.com/p/cbermudez3054/curso/2485-backend-nodejs/diploma/detalle/'
+        },
+        {
+          id: 'platzi-node-fundamentals',
+          name: 'Curso de Fundamentos de Node.js',
+          issuer: 'Platzi',
+          issued: 'Mar 2023',
+          credentialId: '8ce72512-cce3-485d-bfbf-ea8364875897'
+        },
+        {
+          id: 'platzi-cleancode',
+          name: 'Curso de Clean Code y Buenas Prácticas con JavaScript',
+          issuer: 'Platzi',
+          issued: 'Mar 2023',
+          credentialId: '86707f55-0087-4565-9c4c-d5ebceb3bff0',
+          credentialUrl: 'https://platzi.com/p/cbermudez3054/curso/6240-javascript-clean-code/diploma/detalle/'
+        },
+        {
+          id: 'platzi-js-arrays',
+          name: 'Curso de Manipulación de Arrays en JavaScript',
+          issuer: 'Platzi',
+          issued: 'Feb 2023',
+          credentialId: '02c5dba8-3e77-44b9-b1e9-9772eab9d29f'
+        },
+        {
+          id: 'platzi-js-practico',
+          name: 'Curso Práctico de JavaScript',
+          issuer: 'Platzi',
+          issued: 'Jan 2023',
+          credentialId: '14e6f893-1f26-4d2b-ba6c-e37b0e1c4325'
+        },
+        {
+          id: 'platzi-js-functional',
+          name: 'Curso de Programación Funcional en JavaScript por Bedu',
+          issuer: 'Platzi',
+          issued: 'Jan 2023',
+          credentialId: 'c52c6f89-3bc5-4df8-8905-f7a4e43d6822'
+        },
+        {
+          id: 'platzi-ts-poo',
+          name: 'Curso de TypeScript: Programación Orientada a Objetos y Asincronismo',
+          issuer: 'Platzi',
+          issued: 'Oct 2022',
+          credentialId: '725ef025-1831-4854-9a94-73ae33fb1a18'
+        },
+        {
+          id: 'platzi-ts-advanced',
+          name: 'Curso de TypeScript: Tipos Avanzados y Funciones',
+          issuer: 'Platzi',
+          issued: 'Sep 2022',
+          credentialId: '5aee4584-df97-4e45-8d3c-16a022e66fb7'
+        },
+        {
+          id: 'platzi-ts-fundamentals',
+          name: 'Curso de Fundamentos de TypeScript',
+          issuer: 'Platzi',
+          issued: 'Sep 2022',
+          credentialId: 'ba172c54-2456-40b9-a79b-6092b4513c66'
+        },
+        {
+          id: 'platzi-js-basico',
+          name: 'Curso Básico de JavaScript',
+          issuer: 'Platzi',
+          issued: 'Aug 2022',
+          credentialId: '1b8a6beb-2a46-46a4-a819-99efe3411bea'
         }
       ]
     },
@@ -139,187 +547,86 @@ export const translations = {
       eyebrow: 'TECH STACK & EXPERTISE',
       title: 'Tools of the Trade',
       subtitle: 'A specialized backend engineering toolkit honed over years of production workloads.',
-      filterAll: 'All Technologies',
-      filterLanguages: 'Languages & Core',
-      filterFrameworks: 'Frameworks & Runtimes',
-      filterDatabases: 'Databases & Caching',
-      filterCloud: 'Cloud, DevOps & Infra',
-      filterArch: 'Architecture & Patterns'
-    },
-    architecture: {
-      eyebrow: 'INTERACTIVE SYSTEM PLAYGROUND',
-      title: 'Live API & Pipeline Simulator',
-      subtitle: 'Simulate how backend requests traverse authentication, caching, message brokers, and transactional databases in real time.',
-      selectEndpoint: 'Select Endpoint to Execute:',
-      sendRequest: 'Dispatch Request',
-      statusLabel: 'Status Code',
-      latencyLabel: 'Latency',
-      stepByStep: 'Request Execution Pipeline',
-      responsePayload: 'Response JSON',
-      completed: 'Executed in',
-      authStep: 'Auth Guard & JWT Verification',
-      rateStep: 'Token Bucket Rate Limiter (Redis)',
-      cacheStep: 'Distributed Cache Layer (Cache-Aside)',
-      logicStep: 'Domain Logic & Event Bus Publish',
-      dbStep: 'PostgreSQL ACID Transaction'
+      techHeader: 'Technology',
+      yearsHeader: 'Experience',
+      year: 'yr',
+      years: 'yrs',
+      groups: {
+        backend: { title: 'Backend', caption: 'Core languages I ship to production' },
+        frameworks: { title: 'Frameworks', caption: 'APIs, services, testing & UI' },
+        databases: { title: 'Databases', caption: 'Relational, NoSQL & caching' },
+        cloud: { title: 'Cloud & DevOps', caption: 'Infrastructure, containers & delivery' },
+        ai: { title: 'AI & Architecture', caption: 'System design, patterns & AI tooling' }
+      }
     },
     projects: {
-      eyebrow: 'SELECTED PORTFOLIO',
-      title: 'Featured Backend Projects',
-      subtitle: 'Real-world architectures and open-source systems highlighting performance, security, and scalability.',
-      viewCode: 'View on GitHub',
-      liveDemo: 'Live Service',
-      highlightsTitle: 'Key Architecture Highlights:',
-      items: [
-        {
-          id: 'banking-transaction',
-          title: 'High-Throughput Banking & Transaction Engine',
-          category: 'Distributed Systems / Fintech',
-          description: 'A resilient transactional engine designed for financial operations, featuring two-phase commits, concurrency locks, and idempotency guarantees to prevent double-spending.',
-          architectureHighlights: [
-            'Distributed lock management with Redis to avoid race conditions during concurrent balance transfers',
-            'Idempotency key enforcement to safely handle retried network requests',
-            'Full transactional audit log and ACID guarantees backed by PostgreSQL with isolation levels'
-          ],
-          metrics: 'Sub-18ms latency • 100% ACID Compliance',
-          tags: ['TypeScript', 'NestJS', 'PostgreSQL', 'Redis', 'Docker', 'Jest'],
-          githubUrl: 'https://github.com/Cbermudez98/banking_transaction',
-          icon: 'shield'
-        },
-        {
-          id: 'gym-store',
-          title: 'Event-Driven E-Commerce & Store Platform',
-          category: 'Microservices / Event-Driven',
-          description: 'A modular backend platform for retail and inventory synchronization, powered by asynchronous event publishing, inventory reservation, and role-based access control.',
-          architectureHighlights: [
-            'Decoupled order and payment processing via asynchronous message broker',
-            'JWT + Refresh Token rotation security pattern with Redis session invalidation',
-            'Containerized multi-service deployment with Docker Compose orchestration'
-          ],
-          metrics: '99.9% Uptime • Zero Data Loss on Disconnects',
-          tags: ['Node.js', 'Express', 'MongoDB', 'Docker', 'JWT', 'REST API'],
-          githubUrl: 'https://github.com/Cbermudez98/gym_store',
-          icon: 'server'
-        },
-        {
-          id: 'fastapi-microservice',
-          title: 'High-Performance Python Async Microservice',
-          category: 'Python / Cloud Native',
-          description: 'Asynchronous microservice utilizing FastAPI and async database drivers for high-concurrency tasks, automated OpenAPI documentation, and containerized deployment.',
-          architectureHighlights: [
-            'Non-blocking async I/O pipeline supporting thousands of concurrent worker connections',
-            'Automated Pydantic validation and strict schema enforcement',
-            'Integrated health checks, Prometheus metric scrapers, and Docker multi-stage builds'
-          ],
-          metrics: '10k+ Concurrent Connections • Low Memory Footprint',
-          tags: ['Python', 'FastAPI', 'PostgreSQL', 'AsyncIO', 'Docker', 'Pytest'],
-          githubUrl: 'https://github.com/Cbermudez98/todo_fast_api',
-          icon: 'zap'
-        },
-        {
-          id: 'binnacle-unicolombo',
-          title: 'Academic Tracking Platform Backend',
-          category: 'Enterprise / Academic System',
-          description: 'Enterprise backend platform powering academic auditing, student logging, and administrative workflows with granular RBAC permissions.',
-          architectureHighlights: [
-            'Clean Architecture layout separating domain entities from infrastructure adapters',
-            'Automated relational schema migrations and multi-tenant isolation',
-            'Export pipelines for streaming large CSV and PDF reports with low RAM overhead'
-          ],
-          metrics: 'Serving 5,000+ university users',
-          tags: ['TypeScript', 'Node.js', 'MySQL', 'Clean Architecture', 'Jest'],
-          githubUrl: 'https://github.com/Cbermudez98/binnacle_back_unicolombo',
-          icon: 'database'
-        },
-        {
-          id: 'vicpimar-api',
-          title: 'Vicpimar Commercial RESTful API',
-          category: 'Commercial Backend',
-          description: 'Robust API backend for commercial logistics, order management, customer interactions, and multi-channel notification dispatches.',
-          architectureHighlights: [
-            'REST API with hypermedia principles and standardized error envelope formatting',
-            'Data indexing and aggregation pipelines with MongoDB for fast inventory lookups',
-            'Production cloud hosting with secure HTTPS, CORS controls, and rate limits'
-          ],
-          metrics: 'Zero security incidents • 99.95% API Availability',
-          tags: ['TypeScript', 'Express', 'MongoDB', 'AWS', 'Security'],
-          githubUrl: 'https://github.com/Cbermudez98/apirest_vicpimar',
-          icon: 'layers'
-        },
-        {
-          id: 'testing-framework',
-          title: 'Backend Testing & Resilience Harness',
-          category: 'DevOps / QA Automation',
-          description: 'A suite of backend testing patterns, integration test harness, and load simulation scripts to guarantee API resilience before production rollout.',
-          architectureHighlights: [
-            'End-to-end integration test runners mocking external payment gateways and third-party APIs',
-            'Database container spin-up with testcontainers for isolated test environments',
-            'Continuous integration pipelines verifying contracts and preventing regressions'
-          ],
-          metrics: 'Automated CI runs in < 45 seconds',
-          tags: ['JavaScript', 'Jest', 'Supertest', 'CI/CD', 'Docker'],
-          githubUrl: 'https://github.com/Cbermudez98/testing-library',
-          icon: 'activity'
-        }
-      ]
+      eyebrow: 'OPEN SOURCE',
+      title: 'My Code Lives on GitHub',
+      subtitle: 'Explore repositories, experiments, and backend tooling — architectures with Node.js, NestJS, Go, Python, and cloud infrastructure.',
+      cta: 'Visit my GitHub',
+      reposLabel: 'Repositories, experiments & tooling',
+      focus: ['Microservices', 'Clean Architecture', 'Node.js / NestJS', 'Go', 'Python / FastAPI', 'AWS']
     },
     contact: {
       eyebrow: 'CONNECT WITH ME',
       title: "Let's Build Something Resilient Together",
-      subtitle: 'Currently available for Senior Backend Developer, Tech Lead, or Distributed Systems roles (Remote worldwide or Hybrid).',
+      subtitle: 'Currently available for Senior Backend Developer, Tech Lead, or Software Architect roles — remote worldwide, hybrid, or relocation to Europe, Canada, or Asia.',
       emailLabel: 'Direct Email',
       linkedinLabel: 'LinkedIn Profile',
       githubLabel: 'GitHub Repositories',
       locationLabel: 'Location',
       locationValue: 'Cartagena, Colombia (UTC-5) • Global Remote',
+      relocationLabel: 'Relocation',
+      relocationRegions: ['Europe', 'Canada', 'Asia'],
+      writeEmail: 'Send an Email',
       copyEmail: 'Copy Email',
-      emailCopied: 'Copied to Clipboard!',
-      form: {
-        name: 'Your Name',
-        namePlaceholder: 'e.g. John Doe / Tech Recruiter',
-        email: 'Your Email',
-        emailPlaceholder: 'e.g. hiring@company.com',
-        subject: 'Subject',
-        subjectPlaceholder: 'Senior Backend Role / Architecture Project',
-        message: 'Message',
-        messagePlaceholder: 'Hi Cesar, we would love to discuss an engineering opportunity with you...',
-        submit: 'Send Message',
-        sending: 'Dispatching Message...',
-        success: 'Thank you! Your message has been prepared. You can also contact me directly via LinkedIn or email.',
-        requiredError: 'This field is required.',
-        emailError: 'Please enter a valid email address.'
-      }
+      emailCopied: 'Copied to Clipboard!'
+    },
+    cv: {
+      fileName: 'Cesar-Bermudez-Sierra-CV-EN',
+      summary: 'Profile',
+      experience: 'Professional Experience',
+      skills: 'Technical Skills',
+      education: 'Education',
+      certifications: 'Licenses & Certifications',
+      technologies: 'Technologies',
+      certName: 'Certification',
+      certIssuer: 'Issuer',
+      certDate: 'Date'
     },
     footer: {
       bio: 'Senior Backend Developer specialized in high-performance distributed systems, microservices, cloud infrastructure, and clean architecture.',
       quickLinks: 'Navigation',
       socials: 'Connect',
       status: 'All systems operational • 99.99% uptime',
-      copyright: 'Cesar Bermudez Sierra. Built with Angular 21, TypeScript & SCSS.',
-      designedFor: 'Crafted with dark aesthetic and modern engineering practices.'
+      copyright: 'Cesar Bermudez Sierra. Built with Angular 21 & TypeScript.',
+      builtWith: 'Built with'
     }
   },
   es: {
     nav: {
       about: 'Sobre Mí',
       experience: 'Experiencia',
+      education: 'Educación',
       skills: 'Habilidades',
-      architecture: 'Diseño de Sistemas',
-      projects: 'Proyectos',
+      projects: 'GitHub',
       contact: 'Contacto',
-      resume: 'Currículum',
+      resume: 'Descargar CV',
+      generating: 'Generando…',
       switchLang: 'EN',
       currentLangLabel: 'Español',
-      statusAvailable: 'Disponible para Roles Senior Backend'
+      statusAvailable: 'Disponible para Roles Backend y Arquitectura'
     },
     hero: {
-      availableBadge: 'Disponible para Roles Senior Backend & Tech Lead',
+      availableBadge: 'Disponible para Roles Backend y Arquitectura de Software',
       location: 'Cartagena, Colombia • Remoto Global',
-      role: 'Senior Backend Developer',
-      tagline: 'Arquitectura de Sistemas Distribuidos de Alto Rendimiento e Infraestructura Cloud Resiliente',
-      description: 'Especializado en diseñar microservicios de misión crítica, APIs de baja latencia, arquitecturas orientadas a eventos y bases de datos escalables con Node.js, NestJS, Go, Python y AWS.',
-      ctaProjects: 'Explorar Arquitectura y Código',
-      ctaPlayground: 'Playground Interactivo de APIs',
+      role: 'Backend Developer & Arquitectura de Software',
+      studyingBadge: 'Cursando Maestría en Arquitectura de Software',
+      tagline: 'Desarrollador Senior Backend & Arquitecto de Software',
+      description: 'Con más de 7 años de experiencia construyendo APIs cloud-native y microservicios de alto rendimiento con Node.js/TypeScript, Go, Python y Java. Actualmente Backend Developer en Globant (American Century Investments) y cursando una Maestría en Arquitectura de Software.',
+      ctaProjects: 'Ver mi Trayectoria',
+      ctaPlayground: 'Ver GitHub',
+      relocation: 'Disponible para reubicación: Europa · Canadá · Asia',
       ctaContact: 'Contáctame',
       stats: {
         experience: 'Años de Experiencia',
@@ -327,22 +634,34 @@ export const translations = {
         throughput: 'Peticiones Procesadas al Día',
         services: 'Microservicios en Producción'
       },
+      yearsValue: '7+',
       terminal: {
         title: 'cesar@backend-cluster ~ node system-probe.js',
         status: 'ESTADO_DEL_SISTEMA: SALUDABLE (200 OK)',
         region: 'AWS us-east-1 [Multi-AZ]',
         engine: 'Node.js v24.x | NestJS | Go | Redis | PostgreSQL',
         concurrency: 'Latencia P99: < 14ms | TPS: 12,400',
-        activeProtocols: 'gRPC • REST • GraphQL • Kafka/RabbitMQ'
+        activeProtocols: 'gRPC • REST • GraphQL • Kafka/RabbitMQ',
+        ready: 'listo para nuevos retos',
+        labels: { engine: 'MOTOR', infra: 'INFRAESTRUCTURA', performance: 'RENDIMIENTO', protocols: 'PROTOCOLOS', uptime: 'DISPONIBILIDAD' }
       }
     },
     about: {
       eyebrow: 'FILOSOFÍA DE INGENIERÍA',
       title: 'Backends Confiables, Escalables y Sin Caídas',
-      intro: 'Soy Cesar Bermudez Sierra, Desarrollador Backend Senior con profunda pasión por la computación distribuida, la arquitectura de sistemas tolerantes a fallos y la ingeniería de servidores de alto desempeño.',
-      p1: 'A lo largo de los años he diseñado y escalado sistemas en el sector bancario, fintech, plataformas corporativas y entornos académicos. Mi enfoque va más allá de simples endpoints CRUD: resuelvo condiciones de carrera, idempotencia, optimización de queries complejas, colas asíncronas e infraestructura cloud resiliente.',
-      p2: 'Además de mi experiencia en la industria en empresas como Globant y Pragma, he impartido conocimientos como Docente de Tecnologías Web en la Fundación Universitaria Colombo Internacional (Unicolombo), formando a nuevas generaciones de ingenieros en clean code y estándares modernos.',
+      intro: 'Soy Cesar Bermudez Sierra, Backend Developer con más de 7 años de experiencia y profunda pasión por la computación distribuida, la arquitectura resiliente y la ingeniería de servidores de alto desempeño.',
+      p1: 'Me especializo en APIs cloud-native y microservicios con Node.js/TypeScript, Go, Python y Java sobre AWS (API Gateway, Lambda, ECS, EC2). Optimizo sistemas con CloudWatch, bases relacionales y NoSQL, seguridad JWT/Cognito/IAM e IaC con CDK, CloudFormation y Terraform.',
+      p2: 'Hoy lidero el desarrollo backend en Globant para American Century Investments, y comienzo una Maestría en Arquitectura de Software en la Universidad de La Sabana para profundizar en el diseño de sistemas. Estoy disponible para reubicarme en Europa, Canadá o Asia.',
       principlesTitle: 'Principios Fundamentales de Backend',
+      journeyTitle: 'Mi Trayectoria en Ingeniería',
+      highlights: [
+        'Especialista en Node.js, NestJS, Go, Python y SQL',
+        'Arquitectura cloud en producción con AWS y Docker',
+        'Ex docente de Tecnologías Web en UNICOLOMBO',
+        'Disponible para reubicación: Europa, Canadá o Asia'
+      ],
+      quote: 'El buen código backend rara vez es llamativo. Es predecible, se recupera solo ante picos extremos, está protegido contra condiciones de carrera y otros desarrolladores lo extienden con confianza.',
+      principleMeta: 'Estándar de Producción',
       principles: [
         {
           title: 'Alta Concurrencia e Idempotencia',
@@ -368,70 +687,463 @@ export const translations = {
     },
     experience: {
       eyebrow: 'TRAYECTORIA PROFESIONAL',
-      title: 'Experiencia Probada en Producción',
-      subtitle: 'Impulsando excelencia backend en consultoría internacional, fintech y arquitecturas web de alta demanda.',
+      title: 'Experiencia Profesional',
+      subtitle: 'De lo más reciente a lo anterior — liderazgo backend en Globant, Pragma, academia y producto.',
+      currentLabel: 'Actual',
+      rolesLabel: 'cargos',
+      roleLabel: 'cargo',
+      impactLabel: 'Impacto',
+      showMore: 'Ver detalles',
+      showLess: 'Ocultar detalles',
       items: [
         {
-          id: 'globant',
+          id: 'globant-aci',
           company: 'Globant',
-          role: 'Senior Backend Engineer',
-          period: '2023 - Presente',
+          role: 'Backend Developer',
+          period: 'Dic 2025 — Presente',
           location: 'Remoto',
           type: 'Tiempo Completo',
-          description: 'Diseño de servicios backend de escala empresarial e integraciones cloud para clientes internacionales de primer nivel.',
+          description: 'Lidero el desarrollo backend y propongo arquitecturas escalables para la cuenta de American Century Investments.',
           achievements: [
-            'Diseño e implementación de microservicios de alto tráfico procesando millones de transacciones mensuales con NestJS y AWS.',
-            'Refactorización de cuellos de botella heredados, reduciendo los tiempos de respuesta de APIs hasta en un 45% mediante caché Redis e indexación.',
-            'Estandarización de cobertura de pruebas unitarias e integrales en los squads, elevando la cobertura a >88% con Jest y Supertest.',
-            'Mentoría a desarrolladores junior y semi-senior en Clean Architecture, contenedores Docker y colas asíncronas.'
+            'Lidero el ciclo de desarrollo backend, entregando código de alta calidad y soluciones robustas en cada etapa.',
+            'Diseño e implemento arquitecturas escalables con Node.js, Python y Golang para retos técnicos complejos.',
+            'Gestiono y optimizo ecosistemas de datos con PostgreSQL y Redis para alto rendimiento y confiabilidad.',
+            'Despliego y orquesto aplicaciones en contenedores sobre AWS, OpenShift y Kubernetes; entrega continua (GitOps) con ArgoCD.',
+            'Traduzco requerimientos técnicos en entregables de alto impacto alineados con los objetivos del cliente.'
           ],
-          technologies: ['Node.js', 'NestJS', 'TypeScript', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'Jest']
+          technologies: ['Node.js', 'Python', 'Golang', 'PostgreSQL', 'Redis', 'AWS', 'OpenShift', 'Kubernetes', 'ArgoCD']
         },
         {
-          id: 'pragma',
-          company: 'Pragma',
+          id: 'globant-io',
+          company: 'Globant',
           role: 'Backend Developer',
-          period: '2021 - 2023',
-          location: 'Remoto / Colombia',
+          period: 'Sep 2024 — Dic 2025',
+          location: 'Colombia',
           type: 'Tiempo Completo',
-          description: 'Ingeniería de microservicios de misión crítica y flujos transaccionales bancarios.',
+          description: 'Lideré la migración de servicios legacy a arquitecturas limpias y construí nuevos microservicios para IO, la startup del BCP.',
           achievements: [
-            'Construcción de pipelines transaccionales bancarios con estricto control de concurrencia y mecanismos automáticos de rollback.',
-            'Migración de endpoints monolíticos hacia microservicios serverless y en contenedores en AWS.',
-            'Implementación de pipelines automatizados de CI/CD con GitHub Actions y Docker, reduciendo el ciclo de despliegue en un 60%.',
-            'Colaboración activa con equipos de frontend y QA para diseñar contratos REST y basados en eventos consistentes.'
+            'Lideré la migración de servicios legacy a arquitecturas limpias, garantizando calidad y rendimiento en cada etapa.',
+            'Diseñé e implementé nuevos microservicios alineados con buenas prácticas e integrados con los sistemas existentes.',
+            'Brindé soporte y resolví incidentes críticos, priorizando la continuidad y estabilidad del servicio.',
+            'Propuse arquitecturas modernas y escalables para los retos tecnológicos del cliente.',
+            'Participé activamente en ceremonias Scrum, aportando a la mejora continua de los procesos.'
           ],
-          technologies: ['TypeScript', 'Node.js', 'Express', 'MySQL', 'MongoDB', 'Docker', 'AWS Lambda', 'Git']
+          technologies: ['Node.js', 'TypeScript', 'Microservices', 'Clean Architecture', 'AWS', 'Scrum']
+        },
+        {
+          id: 'aci',
+          company: 'American Century Investments',
+          role: 'Senior Backend Developer',
+          period: 'Dic 2025 — Oct 2026',
+          location: 'Cartagena, Colombia · Remoto',
+          type: 'Tiempo Completo',
+          description: 'Asignado a la cuenta de American Century Investments a través de Globant.',
+          achievements: [
+            'Despliegues en contenedores y CI/CD: gestioné flujos con Docker, pipelines de OpenShift, ArgoCD, pods de Kubernetes y cronjobs.',
+            'Optimización de arquitectura: evalué y perfilé decisiones arquitectónicas para mejorar eficiencia, estabilidad y rendimiento del backend.',
+            'Mantenimiento y confiabilidad: diagnostiqué y resolví defectos con rapidez, manteniendo alta disponibilidad del servicio.',
+            'Calidad y pruebas: escribí pruebas unitarias exhaustivas para alta cobertura en microservicios, en estrecha colaboración con QA.',
+            'Seguridad y cloud: construí un middleware Model Context Protocol (MCP) para autenticación y acceso seguro, y configuré Cloudflare.'
+          ],
+          technologies: ['Docker', 'OpenShift', 'ArgoCD', 'Kubernetes', 'MCP', 'Cloudflare', 'Unit Testing']
+        },
+        {
+          id: 'freelance',
+          company: 'Freelancer.com',
+          role: 'Software Engineer Freelance',
+          period: 'May 2019 — Sep 2026',
+          location: 'Colombia · Remoto',
+          type: 'Independiente',
+          description: 'Entregué múltiples proyectos simultáneos para clientes internacionales en cloud, backend, frontend y mobile.',
+          achievements: [
+            'Diseñé y desplegué aplicaciones en AWS (EC2, Lambda, S3, API Gateway) y GCP (Cloud Functions, App Engine, Cloud Run).',
+            'Implementé soluciones serverless con Firebase (Authentication, Firestore, Cloud Functions, Hosting).',
+            'Construí APIs, microservicios y aplicaciones empresariales con Node.js/TypeScript, Golang, Python y Java Spring Boot.',
+            'Creé aplicaciones web responsivas con Angular y React, y apps móviles multiplataforma con Ionic.'
+          ],
+          technologies: ['AWS', 'GCP', 'Firebase', 'Node.js', 'TypeScript', 'Golang', 'Python', 'Spring Boot', 'Angular', 'React', 'Ionic']
         },
         {
           id: 'unicolombo',
-          company: 'Fundación Universitaria Colombo Internacional (Unicolombo)',
-          role: 'Docente de Tecnologías Web & Colaborador Académico',
-          period: '2020 - 2022',
-          location: 'Cartagena, Colombia',
-          type: 'Académico / Ingeniería',
-          description: 'Enseñanza de arquitectura web moderna, tecnologías de servidor y metodologías de ingeniería de software.',
+          company: 'Fundación Universitaria Colombo Internacional (UNICOLOMBO)',
+          role: 'Web Technologies Instructor',
+          period: 'Ene 2023 — Jul 2026',
+          location: 'Cartagena, Colombia · Presencial',
+          type: 'Tiempo Completo',
+          description: 'Enseñé tecnologías web y acompañé a estudiantes en sus proyectos y carrera profesional.',
           achievements: [
-            'Diseño y ejecución del plan de estudios de arquitectura backend, bases de datos relacionales y APIs REST.',
-            'Desarrollo de la plataforma backend de bitácora y seguimiento académico (binnacle_back_unicolombo) para la universidad.',
-            'Capacitación de más de 100 estudiantes en buenas prácticas de desarrollo, colaboración con Git y testing automatizado.'
+            'Enseñé Node.js, SQL, NoSQL y AWS.',
+            'Desarrollé y actualicé materiales de curso alineados con las tendencias de la industria.',
+            'Brindé mentoría personalizada en proyectos y orientación profesional.'
           ],
-          technologies: ['JavaScript', 'TypeScript', 'Node.js', 'MySQL', 'Clean Architecture', 'REST APIs']
+          technologies: ['Node.js', 'SQL', 'NoSQL', 'AWS']
         },
         {
-          id: 'go-digital',
-          company: 'Go Digital & Simbiotica Ltda',
+          id: 'io',
+          company: 'iO',
+          role: 'Backend Developer',
+          period: 'Sep 2024 — Dic 2025',
+          location: 'Cartagena, Colombia · Remoto',
+          type: 'Tiempo Completo',
+          description: 'Staff augmentation a través de Globant en el proyecto IO (BCP Banking), modernizando el ecosistema de banca digital.',
+          achievements: [
+            'Migración de arquitectura: lideré la migración completa de servicios legacy a microservicios con Arquitectura Hexagonal y Kafka.',
+            'Cloud serverless: diseñé microservicios de alta disponibilidad en AWS con Lambda, API Gateway, SQS, Step Functions y DynamoDB.',
+            'Pruebas: tests unitarios y de integración con Jest y Cucumber.js, logrando alta cobertura y menos incidentes en producción.',
+            'Liderazgo técnico: revisiones rigurosas de pull requests, mentoría al equipo y soporte crítico en producción.',
+            'Colaboración ágil: participé en ceremonias Scrum y propuse mejoras concretas a los procesos.'
+          ],
+          technologies: ['Node.js', 'TypeScript', 'Kafka', 'Hexagonal Architecture', 'AWS Lambda', 'SQS', 'Step Functions', 'DynamoDB', 'Jest', 'Cucumber.js']
+        },
+        {
+          id: 'pragma-iii',
+          company: 'PRAGMA',
+          role: 'Advanced Backend Node.js Developer III',
+          period: 'Oct 2023 — Sep 2024',
+          location: 'Colombia · Remoto',
+          type: 'Tiempo Completo',
+          description: 'Lideré un equipo en la implementación de microservicios en AWS, mejorando la eficiencia transaccional e integrando CI/CD.',
+          achievements: [
+            'Lideré un equipo implementando microservicios en AWS (Lambda, API Gateway, SQS, DynamoDB, Aurora, Step Functions).',
+            'Mejoré la eficiencia de las transacciones e integré pipelines de CI/CD.',
+            'Brindé guía y formación a desarrolladores, fortaleciendo las habilidades del equipo.'
+          ],
+          technologies: ['Node.js', 'AWS Lambda', 'API Gateway', 'SQS', 'DynamoDB', 'Aurora', 'Step Functions', 'CI/CD']
+        },
+        {
+          id: 'pragma-ii',
+          company: 'PRAGMA',
+          role: 'Advanced Backend Node.js Developer II',
+          period: 'May 2023 — Oct 2023',
+          location: 'Colombia',
+          type: 'Tiempo Completo',
+          description: 'Construí microservicios para la gestión interna de productos en Banco Agromercantil (BAM), Grupo Bancolombia, con acceso seguro para clientes externos.',
+          achievements: [
+            'Lideré el desarrollo y la optimización de microservicios para la gestión interna de productos.',
+            'Mejoré la construcción de microservicios aplicando arquitecturas limpias.',
+            'Participé en ceremonias Scrum, retroalimentando historias de usuario y proponiendo mejoras a los procesos.'
+          ],
+          technologies: ['Node.js', 'TypeScript', 'Microservices', 'Clean Architecture', 'Scrum']
+        },
+        {
+          id: 'godigital',
+          company: 'Go Digital Colombia',
+          role: 'Full-stack Developer',
+          period: 'Abr 2022 — May 2023',
+          location: 'Cartagena, Colombia · Remoto',
+          type: 'Tiempo Completo',
+          description: 'Construí y mantuve módulos en sistemas web y mobile bajo Scrum.',
+          achievements: [
+            'Desarrollé y mantuve módulos del sistema, funcionalidades y scripts de actualización de datos.',
+            'Gestioné bases de datos en Firebase, construí componentes en Angular y di soporte a apps en Angular.js.',
+            'Construí apps móviles con Ionic y backends con Node.js, TypeScript y Express.js.',
+            'Implementé gestión de roles y autenticación, y analicé requerimientos de software.'
+          ],
+          technologies: ['Node.js', 'TypeScript', 'Express', 'Angular', 'Ionic', 'Firebase', 'Scrum']
+        },
+        {
+          id: 'simbiotica',
+          company: 'Simbiotica Web Agency',
           role: 'Software Developer',
-          period: '2019 - 2021',
+          period: 'Mar 2021 — Abr 2022',
           location: 'Cartagena, Colombia',
           type: 'Tiempo Completo',
-          description: 'Desarrollo de soluciones backend y full-stack para productos comerciales y plataformas de gestión interna.',
+          description: 'Desarrollo de software a partir de historias de usuario con procesos ágiles e iterativos.',
           achievements: [
-            'Desarrollo de APIs RESTful para plataformas de inventario, autenticación y generación de reportes.',
-            'Optimización de consultas SQL y normalización de esquemas, disminuyendo la latencia en reportes analíticos pesados.',
-            'Implementación de autenticación segura con JWT, control de acceso basado en roles (RBAC) e integración de webhooks.'
+            'Desarrollé con JavaScript (Node.js), Express.js, PHP (Laravel), Java, MySQL y MongoDB.',
+            'Trabajé con stakeholders para entender requerimientos y reglas de negocio.',
+            'Implementé gestión de roles y autenticación.'
           ],
-          technologies: ['Node.js', 'Express', 'MySQL', 'MongoDB', 'JavaScript', 'Postman']
+          technologies: ['Node.js', 'Express', 'PHP', 'Laravel', 'Java', 'MySQL', 'MongoDB']
+        },
+        {
+          id: 'autotest',
+          company: 'Autotest SAS',
+          role: 'Software Developer',
+          period: 'Ene 2019 — Mar 2021',
+          location: 'Cartagena, Colombia · Presencial',
+          type: 'Tiempo Completo',
+          description: 'Desarrollé y probé nuevas funcionalidades, di soporte al código existente y gestioné bases de datos MySQL y servicios web.',
+          achievements: [
+            'Desarrollé y probé nuevas funcionalidades, dando soporte al código existente.',
+            'Trabajé con PHP, Java, JavaScript, C# y MySQL; gestioné bases de datos y servicios web.',
+            'Escribí scripts para actualizar información del sistema y brindé soporte al cliente.'
+          ],
+          technologies: ['PHP', 'Java', 'JavaScript', 'C#', 'MySQL', 'Web Services']
+        }
+      ]
+    },
+    education: {
+      eyebrow: 'RUTA ACADÉMICA',
+      title: 'Educación y Certificaciones',
+      subtitle: 'Estudios formales, maestría en curso y certificaciones profesionales que respaldan el oficio.',
+      educationTitle: 'Universidades y Estudios',
+      certificationsTitle: 'Licencias y Certificaciones',
+      inProgress: 'En curso',
+      completed: 'Completado',
+      viewCredential: 'Ver credencial',
+      filterAll: 'Todas',
+      showAll: 'Ver todas las certificaciones',
+      showLess: 'Ver menos',
+      items: [
+        {
+          id: 'masters',
+          degree: 'Maestría en Arquitectura de Software',
+          institution: 'Universidad de La Sabana',
+          period: 'Oct 2026 — Dic 2027',
+          location: 'Colombia',
+          description: 'Profundizando en arquitectura de software, diseño de sistemas escalables y prácticas avanzadas de ingeniería.',
+          status: 'in-progress'
+        },
+        {
+          id: 'systems',
+          degree: 'Ingeniería de Sistemas',
+          institution: 'Fundación Universitaria Colombo Internacional (UNICOLOMBO)',
+          period: 'Ene 2018 — May 2024',
+          location: 'Cartagena, Colombia',
+          description: 'Título profesional enfocado en ingeniería de software, diseño de sistemas y computación aplicada.',
+          status: 'completed'
+        },
+        {
+          id: 'english',
+          degree: 'Programa Profesional de Inglés',
+          institution: 'Centro Colombo Americano de Cartagena',
+          period: 'Abr 2018 — Ago 2019',
+          location: 'Cartagena, Colombia',
+          description: 'Formación profesional en inglés para comunicación académica e industrial.',
+          status: 'completed'
+        }
+      ],
+      certifications: [
+        {
+          id: 'aws-serverless',
+          name: 'AWS Serverless Demonstrated',
+          issuer: 'AWS',
+          issued: 'Oct 2026',
+          credentialId: '81679b37-66e9-446f-ae81-c224e1eaa77a',
+          credentialUrl: 'https://www.credly.com/badges/81679b37-66e9-446f-ae81-c224e1eaa77a'
+        },
+        {
+          id: 'udemy-java',
+          name: 'Learn JAVA Programming - Beginner to Master',
+          issuer: 'Udemy',
+          issued: 'Ene 2026',
+          credentialId: 'UC-ed43a0ce-d58c-430f-aca3-f4cc6ca13399',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-ed43a0ce-d58c-430f-aca3-f4cc6ca13399/'
+        },
+        {
+          id: 'udemy-pytest',
+          name: 'Python Unit Testing Fundamentals (unittest & pytest)',
+          issuer: 'Udemy',
+          issued: 'Ene 2026',
+          credentialId: 'UC-6877fad0-d770-449b-8a24-51d3a99e3c08',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-6877fad0-d770-449b-8a24-51d3a99e3c08/'
+        },
+        {
+          id: 'udemy-py-4',
+          name: 'Python 3: Deep Dive (Part 4 - OOP)',
+          issuer: 'Udemy',
+          issued: 'Ene 2026',
+          credentialId: 'UC-82204d89-0154-40c0-ad39-3fc4ffd61ce8',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-82204d89-0154-40c0-ad39-3fc4ffd61ce8/'
+        },
+        {
+          id: 'udemy-py-3',
+          name: 'Python 3: Deep Dive (Part 3 - Dictionaries, Sets, JSON)',
+          issuer: 'Udemy',
+          issued: 'Ene 2026',
+          credentialId: 'UC-95ed0561-5e73-4524-b1a7-667ad27f1f12',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-95ed0561-5e73-4524-b1a7-667ad27f1f12/'
+        },
+        {
+          id: 'udemy-py-2',
+          name: 'Python 3: Deep Dive (Part 2 - Iterators, Generators)',
+          issuer: 'Udemy',
+          issued: 'Ene 2026',
+          credentialId: 'UC-2185eda9-d077-49d0-95e2-8ac8f0ec50e9',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-2185eda9-d077-49d0-95e2-8ac8f0ec50e9/'
+        },
+        {
+          id: 'udemy-py-1',
+          name: 'Python 3: Deep Dive (Part 1 - Functional)',
+          issuer: 'Udemy',
+          issued: 'Ene 2026',
+          credentialId: 'UC-b5e2212a-a9d8-4790-824c-b4be7d7fa5fa',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-b5e2212a-a9d8-4790-824c-b4be7d7fa5fa/'
+        },
+        {
+          id: 'udemy-fastapi',
+          name: 'FastAPI - The Complete Course 2026 (Beginner + Advanced)',
+          issuer: 'Udemy',
+          issued: 'Dic 2025',
+          credentialId: 'UC-f056eb1c-54a8-4d57-aaec-b6ee7ee65a7d',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-f056eb1c-54a8-4d57-aaec-b6ee7ee65a7d/'
+        },
+        {
+          id: 'udemy-graphql',
+          name: 'GraphQL by Example',
+          issuer: 'Udemy',
+          issued: 'Nov 2025',
+          credentialId: 'UC-59c7fb0d-d67f-463c-85c3-7c907358c85f',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-59c7fb0d-d67f-463c-85c3-7c907358c85f/'
+        },
+        {
+          id: 'udemy-go-concurrency',
+          name: 'Working with Concurrency in Go (Golang)',
+          issuer: 'Udemy',
+          issued: 'Oct 2025',
+          credentialId: 'UC-f4952489-1ce8-473e-88a0-cee0d1078fa9',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-f4952489-1ce8-473e-88a0-cee0d1078fa9/'
+        },
+        {
+          id: 'udemy-aws-dva',
+          name: 'Ultimate AWS Certified Developer Associate 2025 DVA-C02',
+          issuer: 'Udemy',
+          issued: 'Jun 2025',
+          credentialId: 'UC-321654bf-f611-437f-a545-1e4f5827ba4a',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-321654bf-f611-437f-a545-1e4f5827ba4a/'
+        },
+        {
+          id: 'udemy-go',
+          name: 'Go - The Complete Guide',
+          issuer: 'Udemy',
+          issued: 'Mar 2025',
+          credentialId: 'UC-f8400101-674a-4549-af37-b1ddb084496e',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-f8400101-674a-4549-af37-b1ddb084496e/'
+        },
+        {
+          id: 'algoexpert-systems',
+          name: 'Systems Design',
+          issuer: 'AlgoExpert',
+          issued: 'Feb 2025',
+          credentialId: 'SE-d4761d3647',
+          credentialUrl: 'https://certificate.algoexpert.io/SE-d4761d3647'
+        },
+        {
+          id: 'refactoring-guru',
+          name: 'Dive Into Refactoring',
+          issuer: 'Refactoring.Guru',
+          issued: 'Feb 2025',
+          credentialId: 'MTIxNTQy',
+          credentialUrl: 'https://refactoring.guru/cert/r/MTIxNTQy'
+        },
+        {
+          id: 'udemy-js-prototypes',
+          name: 'JavaScript Prototypes, Inheritance & Objects - 2025',
+          issuer: 'Udemy',
+          issued: 'Feb 2025',
+          credentialId: 'UC-e40aa392-5281-4032-bb58-f4a4f8169463',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-e40aa392-5281-4032-bb58-f4a4f8169463/'
+        },
+        {
+          id: 'udemy-nest-micro',
+          name: 'NestJS Microservices: Breaking a Monolith to Microservices',
+          issuer: 'Udemy',
+          issued: 'Ene 2025',
+          credentialId: 'UC-e281000b-0a50-4d9b-9481-f1b943df065c',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-e281000b-0a50-4d9b-9481-f1b943df065c/'
+        },
+        {
+          id: 'udemy-nest-master',
+          name: 'NestJS Masterclass - NodeJS Framework Backend Development',
+          issuer: 'Udemy',
+          issued: 'Nov 2024',
+          credentialId: 'UC-6718f74b-ffe5-40a2-a032-95a68785ca9f',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-6718f74b-ffe5-40a2-a032-95a68785ca9f/'
+        },
+        {
+          id: 'udemy-ts-patterns',
+          name: 'Design Patterns in TypeScript',
+          issuer: 'Udemy',
+          issued: 'Ene 2024',
+          credentialId: 'UC-7e54f79b-f6c4-4269-8a55-0ef463836cec',
+          credentialUrl: 'https://www.udemy.com/certificate/UC-7e54f79b-f6c4-4269-8a55-0ef463836cec/'
+        },
+        {
+          id: 'efset',
+          name: 'EF SET English Certificate (B1 Intermediate)',
+          issuer: 'EF SET',
+          issued: 'May 2023',
+          credentialUrl: 'https://cert.efset.org/b8gvDf'
+        },
+        {
+          id: 'platzi-node-postgres',
+          name: 'Curso de Backend con Node.js: Base de Datos con PostgreSQL',
+          issuer: 'Platzi',
+          issued: 'May 2023',
+          credentialId: '10058771-1a47-4b99-a2b4-49b1f77933f1'
+        },
+        {
+          id: 'platzi-node-express',
+          name: 'Curso de Backend con Node.js: API REST con Express.js',
+          issuer: 'Platzi',
+          issued: 'May 2023',
+          credentialId: '87468771-2710-44b3-86a7-8f52ab305885',
+          credentialUrl: 'https://platzi.com/p/cbermudez3054/curso/2485-backend-nodejs/diploma/detalle/'
+        },
+        {
+          id: 'platzi-node-fundamentals',
+          name: 'Curso de Fundamentos de Node.js',
+          issuer: 'Platzi',
+          issued: 'Mar 2023',
+          credentialId: '8ce72512-cce3-485d-bfbf-ea8364875897'
+        },
+        {
+          id: 'platzi-cleancode',
+          name: 'Curso de Clean Code y Buenas Prácticas con JavaScript',
+          issuer: 'Platzi',
+          issued: 'Mar 2023',
+          credentialId: '86707f55-0087-4565-9c4c-d5ebceb3bff0',
+          credentialUrl: 'https://platzi.com/p/cbermudez3054/curso/6240-javascript-clean-code/diploma/detalle/'
+        },
+        {
+          id: 'platzi-js-arrays',
+          name: 'Curso de Manipulación de Arrays en JavaScript',
+          issuer: 'Platzi',
+          issued: 'Feb 2023',
+          credentialId: '02c5dba8-3e77-44b9-b1e9-9772eab9d29f'
+        },
+        {
+          id: 'platzi-js-practico',
+          name: 'Curso Práctico de JavaScript',
+          issuer: 'Platzi',
+          issued: 'Ene 2023',
+          credentialId: '14e6f893-1f26-4d2b-ba6c-e37b0e1c4325'
+        },
+        {
+          id: 'platzi-js-functional',
+          name: 'Curso de Programación Funcional en JavaScript por Bedu',
+          issuer: 'Platzi',
+          issued: 'Ene 2023',
+          credentialId: 'c52c6f89-3bc5-4df8-8905-f7a4e43d6822'
+        },
+        {
+          id: 'platzi-ts-poo',
+          name: 'Curso de TypeScript: Programación Orientada a Objetos y Asincronismo',
+          issuer: 'Platzi',
+          issued: 'Oct 2022',
+          credentialId: '725ef025-1831-4854-9a94-73ae33fb1a18'
+        },
+        {
+          id: 'platzi-ts-advanced',
+          name: 'Curso de TypeScript: Tipos Avanzados y Funciones',
+          issuer: 'Platzi',
+          issued: 'Sep 2022',
+          credentialId: '5aee4584-df97-4e45-8d3c-16a022e66fb7'
+        },
+        {
+          id: 'platzi-ts-fundamentals',
+          name: 'Curso de Fundamentos de TypeScript',
+          issuer: 'Platzi',
+          issued: 'Sep 2022',
+          credentialId: 'ba172c54-2456-40b9-a79b-6092b4513c66'
+        },
+        {
+          id: 'platzi-js-basico',
+          name: 'Curso Básico de JavaScript',
+          issuer: 'Platzi',
+          issued: 'Ago 2022',
+          credentialId: '1b8a6beb-2a46-46a4-a819-99efe3411bea'
         }
       ]
     },
@@ -439,164 +1151,60 @@ export const translations = {
       eyebrow: 'STACK TECNOLÓGICO Y HABILIDADES',
       title: 'Herramientas y Tecnologías',
       subtitle: 'Un arsenal técnico especializado en backend forjado en sistemas de alta exigencia.',
-      filterAll: 'Todas las Tecnologías',
-      filterLanguages: 'Lenguajes y Core',
-      filterFrameworks: 'Frameworks y Runtimes',
-      filterDatabases: 'Bases de Datos y Caché',
-      filterCloud: 'Cloud, DevOps e Infra',
-      filterArch: 'Arquitectura y Patrones'
-    },
-    architecture: {
-      eyebrow: 'PLAYGROUND INTERACTIVO DE SISTEMAS',
-      title: 'Simulador de APIs y Pipeline en Vivo',
-      subtitle: 'Observa en tiempo real cómo viaja una petición backend por las capas de autenticación, caché, cola de mensajes y base de datos relacional.',
-      selectEndpoint: 'Selecciona un Endpoint para Ejecutar:',
-      sendRequest: 'Disparar Petición',
-      statusLabel: 'Código de Estado',
-      latencyLabel: 'Latencia',
-      stepByStep: 'Pipeline de Ejecución del Backend',
-      responsePayload: 'Respuesta JSON',
-      completed: 'Completado en',
-      authStep: 'Guardia de Autenticación & Verificación JWT',
-      rateStep: 'Limitador de Tasa Token Bucket (Redis)',
-      cacheStep: 'Capa de Caché Distribuida (Cache-Aside)',
-      logicStep: 'Lógica de Dominio y Publicación en Bus de Eventos',
-      dbStep: 'Transacción ACID en PostgreSQL'
+      techHeader: 'Tecnología',
+      yearsHeader: 'Experiencia',
+      year: 'año',
+      years: 'años',
+      groups: {
+        backend: { title: 'Backend', caption: 'Los lenguajes con los que trabajo en producción' },
+        frameworks: { title: 'Frameworks', caption: 'APIs, servicios, testing e interfaces' },
+        databases: { title: 'Bases de Datos', caption: 'Relacionales, NoSQL y caché' },
+        cloud: { title: 'Cloud & DevOps', caption: 'Infraestructura, contenedores y despliegue' },
+        ai: { title: 'IA & Arquitectura', caption: 'Diseño de sistemas, patrones y herramientas de IA' }
+      }
     },
     projects: {
-      eyebrow: 'PROYECTOS DESTACADOS',
-      title: 'Proyectos Backend Seleccionados',
-      subtitle: 'Arquitecturas del mundo real y sistemas de código abierto que destacan rendimiento, seguridad y escalabilidad.',
-      viewCode: 'Ver en GitHub',
-      liveDemo: 'Servicio en Vivo',
-      highlightsTitle: 'Aspectos Clave de Arquitectura:',
-      items: [
-        {
-          id: 'banking-transaction',
-          title: 'Motor Transaccional y Bancario de Alta Disponibilidad',
-          category: 'Sistemas Distribuidos / Fintech',
-          description: 'Motor transaccional diseñado para operaciones financieras críticas, con bloqueos de concurrencia, idempotencia y auditoría para prevenir doble gasto.',
-          architectureHighlights: [
-            'Gestión de bloqueos distribuidos con Redis para prevenir condiciones de carrera en transferencias concurrentes',
-            'Aplicación estricta de claves de idempotencia para soportar reintentos de red sin duplicaciones',
-            'Registro completo de auditoría transaccional con garantías ACID en PostgreSQL'
-          ],
-          metrics: 'Latencia < 18ms • Cumplimiento ACID 100%',
-          tags: ['TypeScript', 'NestJS', 'PostgreSQL', 'Redis', 'Docker', 'Jest'],
-          githubUrl: 'https://github.com/Cbermudez98/banking_transaction',
-          icon: 'shield'
-        },
-        {
-          id: 'gym-store',
-          title: 'Plataforma de E-Commerce y Almacén Orientada a Eventos',
-          category: 'Microservicios / Event-Driven',
-          description: 'Plataforma backend modular para sincronización de inventarios y ventas, impulsada por publicación de eventos asíncronos y autenticación robusta.',
-          architectureHighlights: [
-            'Desacoplamiento del procesamiento de órdenes y pagos mediante colas asíncronas',
-            'Seguridad JWT con rotación de Refresh Tokens y revocación inmediata en Redis',
-            'Despliegue multi-servicio orquestado con Docker Compose'
-          ],
-          metrics: '99.9% Uptime • Cero Pérdida de Datos en Desconexiones',
-          tags: ['Node.js', 'Express', 'MongoDB', 'Docker', 'JWT', 'REST API'],
-          githubUrl: 'https://github.com/Cbermudez98/gym_store',
-          icon: 'server'
-        },
-        {
-          id: 'fastapi-microservice',
-          title: 'Microservicio Asíncrono de Alto Desempeño en Python',
-          category: 'Python / Cloud Native',
-          description: 'Microservicio con FastAPI y drivers asíncronos para tareas de alta concurrencia, documentación OpenAPI automática y empaquetado Docker.',
-          architectureHighlights: [
-            'Pipeline de E/S no bloqueante que gestiona miles de conexiones concurrentes de workers',
-            'Validación automatizada de tipos y esquemas estrictos con Pydantic',
-            'Health checks integrados, métricas para Prometheus y Docker multi-stage'
-          ],
-          metrics: '+10,000 Conexiones Concurrentes • Mínimo Consumo de RAM',
-          tags: ['Python', 'FastAPI', 'PostgreSQL', 'AsyncIO', 'Docker', 'Pytest'],
-          githubUrl: 'https://github.com/Cbermudez98/todo_fast_api',
-          icon: 'zap'
-        },
-        {
-          id: 'binnacle-unicolombo',
-          title: 'Backend de Plataforma de Auditoría y Bitácora Académica',
-          category: 'Sistema Empresarial / Académico',
-          description: 'Plataforma empresarial para auditoría académica, bitácora de estudiantes y flujos administrativos con permisos granulares RBAC.',
-          architectureHighlights: [
-            'Estructura Clean Architecture desacoplando entidades de negocio de adaptadores de infraestructura',
-            'Migraciones relacionales automatizadas y partición de datos multi-inquilino',
-            'Pipelines de streaming para exportación de reportes CSV y PDF de gran volumen sin saturar memoria'
-          ],
-          metrics: 'Atendiendo a más de 5,000 usuarios universitarios',
-          tags: ['TypeScript', 'Node.js', 'MySQL', 'Clean Architecture', 'Jest'],
-          githubUrl: 'https://github.com/Cbermudez98/binnacle_back_unicolombo',
-          icon: 'database'
-        },
-        {
-          id: 'vicpimar-api',
-          title: 'API RESTful Comercial Vicpimar',
-          category: 'Backend Comercial',
-          description: 'Backend para logística comercial, administración de inventarios, gestión de clientes y despacho de notificaciones multicanal.',
-          architectureHighlights: [
-            'API REST con principios hipermedia y estructura estandarizada de respuestas de error',
-            'Indexación y agregaciones en MongoDB para búsquedas ultrarrápidas de catálogo',
-            'Alojamiento cloud con HTTPS forzado, políticas CORS y limitación de tasa'
-          ],
-          metrics: 'Cero incidentes de seguridad • 99.95% Disponibilidad',
-          tags: ['TypeScript', 'Express', 'MongoDB', 'AWS', 'Security'],
-          githubUrl: 'https://github.com/Cbermudez98/apirest_vicpimar',
-          icon: 'layers'
-        },
-        {
-          id: 'testing-framework',
-          title: 'Suite de Resiliencia y Pruebas Automatizadas Backend',
-          category: 'DevOps / Automatización QA',
-          description: 'Conjunto de patrones de prueba, arnés de integración y simuladores de carga para garantizar la resiliencia de servicios antes de salir a producción.',
-          architectureHighlights: [
-            'Ejecutores de pruebas end-to-end con mocks de pasarelas de pago y APIs externas',
-            'Levantamiento dinámico de bases de datos de prueba en contenedores aislados',
-            'Pipelines de integración continua verificando contratos para evitar regresiones'
-          ],
-          metrics: 'Ejecución automatizada en CI en menos de 45 segundos',
-          tags: ['JavaScript', 'Jest', 'Supertest', 'CI/CD', 'Docker'],
-          githubUrl: 'https://github.com/Cbermudez98/testing-library',
-          icon: 'activity'
-        }
-      ]
+      eyebrow: 'CÓDIGO ABIERTO',
+      title: 'Mi Código Vive en GitHub',
+      subtitle: 'Explora repositorios, experimentos y herramientas backend — arquitecturas con Node.js, NestJS, Go, Python e infraestructura cloud.',
+      cta: 'Visitar mi GitHub',
+      reposLabel: 'Repositorios, experimentos y herramientas',
+      focus: ['Microservicios', 'Clean Architecture', 'Node.js / NestJS', 'Go', 'Python / FastAPI', 'AWS']
     },
     contact: {
       eyebrow: 'CONTÁCTAME',
       title: 'Construyamos Algo Resiliente y Escalable',
-      subtitle: 'Actualmente disponible para roles como Senior Backend Developer, Tech Lead o Ingeniero de Sistemas Distribuidos (Remoto mundial o Híbrido).',
+      subtitle: 'Actualmente disponible para roles como Senior Backend Developer, Tech Lead o Arquitecto de Software — remoto mundial, híbrido o con reubicación a Europa, Canadá o Asia.',
       emailLabel: 'Correo Directo',
       linkedinLabel: 'Perfil de LinkedIn',
       githubLabel: 'Repositorios en GitHub',
       locationLabel: 'Ubicación',
       locationValue: 'Cartagena, Colombia (UTC-5) • Remoto Global',
+      relocationLabel: 'Reubicación',
+      relocationRegions: ['Europa', 'Canadá', 'Asia'],
+      writeEmail: 'Escribir Correo',
       copyEmail: 'Copiar Correo',
-      emailCopied: '¡Copiado al Portapapeles!',
-      form: {
-        name: 'Tu Nombre',
-        namePlaceholder: 'Ej. Juan Pérez / Tech Recruiter',
-        email: 'Tu Correo',
-        emailPlaceholder: 'Ej. hiring@empresa.com',
-        subject: 'Asunto',
-        subjectPlaceholder: 'Rol Senior Backend / Proyecto de Arquitectura',
-        message: 'Mensaje',
-        messagePlaceholder: 'Hola Cesar, nos gustaría conversar sobre una oportunidad de ingeniería...',
-        submit: 'Enviar Mensaje',
-        sending: 'Enviando Mensaje...',
-        success: '¡Muchas gracias! Tu mensaje ha sido preparado. También puedes escribirme directamente por LinkedIn o correo.',
-        requiredError: 'Este campo es obligatorio.',
-        emailError: 'Por favor ingresa un correo válido.'
-      }
+      emailCopied: '¡Copiado al Portapapeles!'
+    },
+    cv: {
+      fileName: 'Cesar-Bermudez-Sierra-CV-ES',
+      summary: 'Perfil',
+      experience: 'Experiencia Profesional',
+      skills: 'Habilidades Técnicas',
+      education: 'Educación',
+      certifications: 'Licencias y Certificaciones',
+      technologies: 'Tecnologías',
+      certName: 'Certificación',
+      certIssuer: 'Emisor',
+      certDate: 'Fecha'
     },
     footer: {
       bio: 'Desarrollador Backend Senior especializado en sistemas distribuidos de alto rendimiento, microservicios, infraestructura cloud y arquitectura limpia.',
       quickLinks: 'Navegación',
       socials: 'Conectar',
       status: 'Todos los sistemas operativos • 99.99% disponibilidad',
-      copyright: 'Cesar Bermudez Sierra. Desarrollado con Angular 21, TypeScript y SCSS.',
-      designedFor: 'Diseñado con estética oscura y buenas prácticas de ingeniería.'
+      copyright: 'Cesar Bermudez Sierra. Desarrollado con Angular 21 y TypeScript.',
+      builtWith: 'Hecho con'
     }
   }
 };

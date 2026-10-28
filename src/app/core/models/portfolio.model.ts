@@ -1,18 +1,5 @@
 export type Language = 'en' | 'es';
 
-export interface ProjectItem {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  architectureHighlights: string[];
-  metrics: string;
-  tags: string[];
-  githubUrl: string;
-  liveUrl?: string;
-  icon: string;
-}
-
 export interface ExperienceItem {
   id: string;
   role: string;
@@ -23,14 +10,45 @@ export interface ExperienceItem {
   description: string;
   achievements: string[];
   technologies: string[];
+  logoKey: string;
+  logoUrl?: string;
+  current?: boolean;
 }
 
-export interface SkillItem {
+export interface EducationItem {
+  id: string;
+  degree: string;
+  institution: string;
+  period: string;
+  location: string;
+  description: string;
+  status: 'completed' | 'in-progress';
+  logoKey: string;
+  logoUrl?: string;
+}
+
+export interface CertificationItem {
+  id: string;
   name: string;
-  category: 'languages' | 'frameworks' | 'databases' | 'cloud' | 'architecture';
-  proficiency: number;
-  featured?: boolean;
+  issuer: string;
+  issued: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  logoKey: string;
+}
+
+export type SkillGroupId = 'backend' | 'frameworks' | 'databases' | 'cloud' | 'ai';
+
+export interface SkillEntry {
+  name: string;
+  /** Years of hands-on experience */
+  years: number;
+}
+
+export interface SkillGroup {
+  id: SkillGroupId;
   icon: string;
+  items: SkillEntry[];
 }
 
 export interface MetricItem {
@@ -43,18 +61,4 @@ export interface PrincipleItem {
   title: string;
   description: string;
   icon: string;
-}
-
-export interface ApiEndpointSimulation {
-  id: string;
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-  path: string;
-  description: string;
-  samplePayload?: Record<string, any>;
-  sampleResponse: Record<string, any>;
-  pipelineSteps: {
-    name: string;
-    description: string;
-    latencyMs: number;
-  }[];
 }

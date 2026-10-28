@@ -1,21 +1,16 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { I18nService } from '../../core/services/i18n.service';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 import { IconComponent } from '../../shared/components/icon/icon.component';
-import { SkillItem } from '../../core/models/portfolio.model';
-
-type SkillCategory = 'all' | 'languages' | 'frameworks' | 'databases' | 'cloud' | 'architecture';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
-    <section id="skills" class="section bg-slate-950/60 border-t border-slate-900">
+    <section id="skills" class="section section-alt">
       <div class="container">
-        
-        <!-- Section Header -->
         <div class="section-header">
           <div class="section-eyebrow">
             <app-icon name="code" [size]="14"></app-icon>
@@ -25,139 +20,159 @@ type SkillCategory = 'all' | 'languages' | 'frameworks' | 'databases' | 'cloud' 
           <p class="section-subtitle">{{ t().skills.subtitle }}</p>
         </div>
 
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
-          <button 
-            type="button" 
-            (click)="selectedCategory.set('all')"
-            class="filter-pill" 
-            [class.filter-pill-active]="selectedCategory() === 'all'">
-            {{ t().skills.filterAll }}
-          </button>
-          <button 
-            type="button" 
-            (click)="selectedCategory.set('languages')"
-            class="filter-pill" 
-            [class.filter-pill-active]="selectedCategory() === 'languages'">
-            {{ t().skills.filterLanguages }}
-          </button>
-          <button 
-            type="button" 
-            (click)="selectedCategory.set('frameworks')"
-            class="filter-pill" 
-            [class.filter-pill-active]="selectedCategory() === 'frameworks'">
-            {{ t().skills.filterFrameworks }}
-          </button>
-          <button 
-            type="button" 
-            (click)="selectedCategory.set('databases')"
-            class="filter-pill" 
-            [class.filter-pill-active]="selectedCategory() === 'databases'">
-            {{ t().skills.filterDatabases }}
-          </button>
-          <button 
-            type="button" 
-            (click)="selectedCategory.set('cloud')"
-            class="filter-pill" 
-            [class.filter-pill-active]="selectedCategory() === 'cloud'">
-            {{ t().skills.filterCloud }}
-          </button>
-          <button 
-            type="button" 
-            (click)="selectedCategory.set('architecture')"
-            class="filter-pill" 
-            [class.filter-pill-active]="selectedCategory() === 'architecture'">
-            {{ t().skills.filterArch }}
-          </button>
-        </div>
-
-        <!-- Skills Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          @for (skill of filteredSkills(); track skill.name) {
-            <div class="skill-card glass-card p-5 group">
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 group-hover:border-cyan-500/40 flex items-center justify-center transition-colors">
-                    <app-icon [name]="skill.icon" [size]="18" color="#38bdf8"></app-icon>
-                  </div>
-                  <div>
-                    <h4 class="font-bold text-white text-sm group-hover:text-cyan-300 transition-colors">
-                      {{ skill.name }}
-                    </h4>
-                    <span class="font-mono text-xs text-slate-500 uppercase">
-                      {{ skill.category }}
-                    </span>
-                  </div>
+        <div class="dim-siblings groups">
+          @for (group of data.skillGroups; track group.id; let i = $index) {
+            <article class="surface group" [class.wide]="group.id === 'cloud' || group.id === 'ai'">
+              <header class="group-head">
+                <span class="group-icon">
+                  <app-icon [name]="group.icon" [size]="18"></app-icon>
+                </span>
+                <div>
+                  <h3>{{ t().skills.groups[group.id].title }}</h3>
+                  <p>{{ t().skills.groups[group.id].caption }}</p>
                 </div>
+                <span class="group-count">{{ group.items.length }}</span>
+              </header>
 
-                <div class="font-mono text-xs font-semibold text-cyan-400 px-2 py-0.5 rounded bg-cyan-950/40 border border-cyan-800/40">
-                  {{ skill.proficiency }}%
-                </div>
-              </div>
-
-              <!-- Meter Bar -->
-              <div class="w-full bg-slate-800/80 rounded-full h-1.5 overflow-hidden">
-                <div 
-                  class="h-full rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 transition-all duration-700"
-                  [style.width.%]="skill.proficiency">
-                </div>
-              </div>
-            </div>
+              <table class="tech-table">
+                <thead>
+                  <tr>
+                    <th scope="col">{{ t().skills.techHeader }}</th>
+                    <th scope="col" class="num">{{ t().skills.yearsHeader }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (item of group.items; track item.name; let j = $index) {
+                    <tr [style.--j]="j">
+                      <td><span class="tech-tag">{{ item.name }}</span></td>
+                      <td class="num">
+                        <span class="years">{{ item.years }}</span>
+                        <span class="unit">{{ item.years === 1 ? t().skills.year : t().skills.years }}</span>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </article>
           }
         </div>
-
       </div>
     </section>
   `,
   styles: [`
-    .filter-pill {
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.825rem;
-      font-weight: 500;
+    .groups {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .groups { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .groups { grid-template-columns: repeat(6, 1fr); }
+      .group { grid-column: span 2; }
+      .group.wide { grid-column: span 3; }
+    }
+
+    .group {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .group-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .group-head > div { flex: 1; min-width: 0; }
+    .group-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      background: rgba(94, 234, 212, 0.1);
+      color: #5eead4;
+      transition: transform 0.35s var(--ease-out), background 0.3s;
+    }
+    .group:hover .group-icon {
+      transform: rotate(-8deg) scale(1.08);
+      background: rgba(94, 234, 212, 0.18);
+    }
+    .group-head h3 {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 0.15rem;
+      transition: color 0.2s var(--ease-out);
+    }
+    .group:hover .group-head h3 { color: #5eead4; }
+    .group-head p {
+      font-size: 0.82rem;
       color: #94a3b8;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.2s ease;
+      line-height: 1.45;
     }
-    .filter-pill:hover {
-      color: #ffffff;
-      border-color: rgba(56, 189, 248, 0.3);
-      background: rgba(30, 41, 59, 0.7);
+    .group-count {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #64748b;
+      padding-top: 0.2rem;
     }
-    .filter-pill-active {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: rgba(56, 189, 248, 0.5);
-      color: #38bdf8;
+
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .tech-table th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #64748b;
+      padding: 0 0.5rem 0.55rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    }
+    .tech-table td {
+      padding: 0.4rem 0.5rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+      vertical-align: middle;
+    }
+    .tech-table tbody tr:last-child td { border-bottom: none; }
+    .tech-table tbody tr {
+      transition: background 0.2s var(--ease-out);
+    }
+    .tech-table tbody tr:hover { background: rgba(94, 234, 212, 0.05); }
+    .tech-table .num { text-align: right; white-space: nowrap; }
+    .years {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
       font-weight: 600;
+      color: #e2e8f0;
     }
-    .skill-card {
-      transition: transform 0.2s ease, border-color 0.2s ease;
+    .unit {
+      margin-left: 0.3rem;
+      font-size: 0.75rem;
+      color: #94a3b8;
     }
-    .skill-card:hover {
-      transform: translateY(-2px);
+    .tech-table .tech-tag {
+      transition: background 0.2s var(--ease-out), transform 0.25s var(--ease-out);
     }
-    .grid { display: grid; }
-    .flex { display: flex; }
-    .items-center { align-items: center; }
-    .justify-center { justify-content: center; }
-    .justify-between { justify-content: space-between; }
-    .gap-2 { gap: 0.5rem; }
-    .gap-3 { gap: 0.75rem; }
-    .gap-4 { gap: 1rem; }
+    .group:hover .tech-table .tech-tag {
+      transform: translateX(3px);
+      transition-delay: calc(var(--j, 0) * 18ms);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .group:hover .tech-table .tech-tag, .group:hover .group-icon { transform: none; }
+    }
   `]
 })
 export class SkillsComponent {
   public readonly i18n = inject(I18nService);
   public readonly data = inject(PortfolioDataService);
   public readonly t = this.i18n.t;
-
-  public readonly selectedCategory = signal<SkillCategory>('all');
-
-  public readonly filteredSkills = computed(() => {
-    const category = this.selectedCategory();
-    const all = this.data.skills;
-    if (category === 'all') return all;
-    return all.filter(s => s.category === category);
-  });
 }

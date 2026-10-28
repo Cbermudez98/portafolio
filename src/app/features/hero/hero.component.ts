@@ -9,179 +9,123 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
   standalone: true,
   imports: [CommonModule, IconComponent],
   template: `
-    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-      
-      <!-- Ambient Glow Behind Hero -->
-      <div class="ambient-glow -top-32 left-1/2 -translate-x-1/2"></div>
-      <div class="ambient-glow-emerald top-48 -right-32"></div>
+    <section class="hero relative overflow-hidden">
+      <div class="hero-glow hero-glow-a animate-drift"></div>
+      <div class="hero-glow hero-glow-b"></div>
 
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          <!-- Left Column: Copy & Actions -->
-          <div class="lg:col-span-7 flex flex-col items-start text-left">
-            
-            <!-- Availability & Location Badges -->
-            <div class="flex flex-wrap items-center gap-2.5 mb-6">
-              <div class="badge-status">
+      <div class="container relative z-10">
+        <div class="hero-grid">
+
+          <div class="hero-copy animate-fade-up">
+            <div class="hero-meta">
+              <span class="availability">
                 <span class="status-dot"></span>
-                <span>{{ t().hero.availableBadge }}</span>
-              </div>
-              <div class="badge-location">
-                <app-icon name="globe" [size]="14" color="#94a3b8"></app-icon>
-                <span>{{ t().hero.location }}</span>
-              </div>
-            </div>
-
-            <!-- Main Title & Name -->
-            <div class="mb-4">
-              <span class="font-mono text-cyan-400 text-sm md:text-base font-semibold tracking-wider uppercase mb-2 block">
-                {{ t().hero.role }}
+                {{ t().hero.availableBadge }}
               </span>
-              <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                Cesar Bermudez Sierra
-              </h1>
+              <span class="location">
+                <app-icon name="globe" [size]="14" color="#94a3b8"></app-icon>
+                {{ t().hero.location }}
+              </span>
+              <span class="relocation">
+                <app-icon name="globe" [size]="14" color="#5EEAD4"></app-icon>
+                {{ t().hero.relocation }}
+              </span>
+              <span class="studying">
+                <app-icon name="layers" [size]="14" color="#5EEAD4"></app-icon>
+                {{ t().hero.studyingBadge }}
+              </span>
             </div>
 
-            <!-- Tagline -->
-            <p class="hero-tagline text-lg sm:text-xl font-medium text-slate-200 mb-4 max-w-2xl">
-              {{ t().hero.tagline }}
-            </p>
+            <p class="hero-role">{{ t().hero.role }}</p>
 
-            <!-- Detailed Description -->
-            <p class="text-base text-slate-400 leading-relaxed mb-8 max-w-2xl">
-              {{ t().hero.description }}
-            </p>
+            <h1 class="hero-name">Cesar Bermudez Sierra</h1>
 
-            <!-- CTAs -->
-            <div class="flex flex-wrap items-center gap-4 mb-12 w-full sm:w-auto">
-              <a href="#projects" class="btn btn-primary w-full sm:w-auto">
-                <app-icon name="layers" [size]="18"></app-icon>
+            <p class="hero-tagline">{{ t().hero.tagline }}</p>
+
+            <p class="hero-desc">{{ t().hero.description }}</p>
+
+            <div class="hero-ctas animate-fade-up-delay">
+              <a href="#experience" class="btn btn-primary">
+                <app-icon name="activity" [size]="17"></app-icon>
                 <span>{{ t().hero.ctaProjects }}</span>
               </a>
-
-              <a href="#architecture" class="btn btn-outline-cyan w-full sm:w-auto">
-                <app-icon name="activity" [size]="18"></app-icon>
+              <a href="#projects" class="btn btn-ghost">
+                <app-icon name="github" [size]="17"></app-icon>
                 <span>{{ t().hero.ctaPlayground }}</span>
               </a>
-
-              <a href="#contact" class="btn btn-secondary w-full sm:w-auto">
-                <app-icon name="mail" [size]="18"></app-icon>
+              <a href="#contact" class="btn btn-secondary">
+                <app-icon name="mail" [size]="17"></app-icon>
                 <span>{{ t().hero.ctaContact }}</span>
               </a>
             </div>
 
-            <!-- Core Metrics Counter Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-6 border-t border-slate-800/80">
-              <div class="metric-card">
-                <span class="metric-value text-cyan-400">6+</span>
+            <div class="hero-metrics animate-fade-up-delay-2">
+              <div class="metric">
+                <span class="metric-value">{{ t().hero.yearsValue }}</span>
                 <span class="metric-label">{{ t().hero.stats.experience }}</span>
               </div>
-
-              <div class="metric-card">
-                <span class="metric-value text-emerald-400">99.99%</span>
+              <div class="metric">
+                <span class="metric-value">99.99%</span>
                 <span class="metric-label">{{ t().hero.stats.availability }}</span>
               </div>
-
-              <div class="metric-card">
-                <span class="metric-value text-indigo-400">15M+</span>
+              <div class="metric">
+                <span class="metric-value">15M+</span>
                 <span class="metric-label">{{ t().hero.stats.throughput }}</span>
               </div>
-
-              <div class="metric-card">
-                <span class="metric-value text-sky-400">30+</span>
+              <div class="metric">
+                <span class="metric-value">30+</span>
                 <span class="metric-label">{{ t().hero.stats.services }}</span>
               </div>
             </div>
-
           </div>
 
-          <!-- Right Column: Interactive Terminal Box -->
-          <div class="lg:col-span-5 w-full">
-            <div class="terminal-window shadow-2xl">
-              
-              <!-- Terminal Titlebar -->
-              <div class="terminal-header">
-                <div class="flex items-center gap-2">
-                  <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-                  <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-                  <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          <div class="hero-terminal-wrap animate-fade-up-delay">
+            <div class="terminal">
+              <div class="terminal-bar">
+                <div class="terminal-dots">
+                  <span></span><span></span><span></span>
                 </div>
-                <div class="terminal-title">
-                  {{ t().hero.terminal.title }}
-                </div>
-                <div class="w-12 text-right">
-                  <span class="font-mono text-xs text-slate-500">zsh</span>
-                </div>
+                <span class="terminal-title">{{ t().hero.terminal.title }}</span>
+                <span class="terminal-shell">zsh</span>
               </div>
 
-              <!-- Terminal Body -->
-              <div class="terminal-body font-mono text-xs sm:text-sm">
-                
-                <div class="terminal-line text-slate-400">
-                  <span class="text-emerald-400">$</span> probe --target=production-cluster --verbose
+              <div class="terminal-body font-mono">
+                <div class="line dim">
+                  <span class="prompt">$</span> probe --target=production-cluster --verbose
                 </div>
+                <div class="rule"></div>
 
-                <div class="terminal-divider"></div>
+                <div class="kv"><span>{{ t().hero.terminal.labels.engine }}</span><strong>{{ t().hero.terminal.engine }}</strong></div>
+                <div class="kv"><span>{{ t().hero.terminal.labels.infra }}</span><strong>{{ t().hero.terminal.region }}</strong></div>
+                <div class="kv"><span>{{ t().hero.terminal.labels.performance }}</span><strong class="ok">{{ t().hero.terminal.concurrency }}</strong></div>
+                <div class="kv"><span>{{ t().hero.terminal.labels.protocols }}</span><strong>{{ t().hero.terminal.activeProtocols }}</strong></div>
+                <div class="kv"><span>{{ t().hero.terminal.labels.uptime }}</span><strong class="accent">{{ uptimeSeconds() }}s · 99.992%</strong></div>
 
-                <div class="flex items-center justify-between text-slate-300">
-                  <span class="text-slate-400">ENGINE:</span>
-                  <span class="text-cyan-300 font-semibold">{{ t().hero.terminal.engine }}</span>
-                </div>
+                <div class="rule"></div>
 
-                <div class="flex items-center justify-between text-slate-300">
-                  <span class="text-slate-400">INFRASTRUCTURE:</span>
-                  <span class="text-slate-200">{{ t().hero.terminal.region }}</span>
-                </div>
-
-                <div class="flex items-center justify-between text-slate-300">
-                  <span class="text-slate-400">PERFORMANCE:</span>
-                  <span class="text-emerald-400 font-semibold">{{ t().hero.terminal.concurrency }}</span>
-                </div>
-
-                <div class="flex items-center justify-between text-slate-300">
-                  <span class="text-slate-400">PROTOCOLS:</span>
-                  <span class="text-indigo-300">{{ t().hero.terminal.activeProtocols }}</span>
-                </div>
-
-                <div class="flex items-center justify-between text-slate-300">
-                  <span class="text-slate-400">UPTIME CLOCK:</span>
-                  <span class="text-amber-300 font-mono">{{ uptimeSeconds() }}s (99.992%)</span>
-                </div>
-
-                <div class="terminal-divider"></div>
-
-                <!-- Live Stream Probe Log -->
-                <div class="terminal-log-box">
-                  <div class="flex items-center gap-2 text-emerald-400 font-bold">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>{{ t().hero.terminal.status }}</span>
+                <div class="live-box">
+                  <div class="live-label">
+                    <span class="live-pulse"></span>
+                    {{ t().hero.terminal.status }}
                   </div>
-                  <div class="text-slate-400 text-xs mt-1">
-                    [OK] Healthcheck PASS | 0 deadlock alerts | DB conn pool: 12/50
-                  </div>
+                  <p>[OK] Healthcheck PASS · 0 deadlock alerts · DB pool 12/50</p>
                 </div>
 
-                <!-- Cursor line -->
-                <div class="flex items-center gap-1 text-slate-400 pt-2">
-                  <span class="text-cyan-400">cluster-01 &#62;</span>
-                  <span class="typing-text">ready for new workloads</span>
-                  <span class="blinking-cursor"></span>
+                <div class="cursor-line">
+                  <span class="prompt accent">cluster-01 ›</span>
+                  <span>{{ t().hero.terminal.ready }}</span>
+                  <span class="blink"></span>
                 </div>
-
               </div>
-
             </div>
 
-            <!-- Terminal Footnote Badge -->
-            <div class="mt-4 flex items-center justify-between px-3 text-xs font-mono text-slate-500">
-              <span class="flex items-center gap-1.5">
-                <app-icon name="shield" [size]="14" color="#10b981"></app-icon>
-                <span>Zero Trust • RBAC Secured</span>
+            <div class="terminal-note">
+              <span>
+                <app-icon name="shield" [size]="13" color="#94a3b8"></app-icon>
+                Zero Trust · RBAC
               </span>
-              <span>TLS 1.3 • HTTP/2</span>
+              <span>TLS 1.3 · HTTP/2</span>
             </div>
-
           </div>
 
         </div>
@@ -189,126 +133,277 @@ import { IconComponent } from '../../shared/components/icon/icon.component';
     </section>
   `,
   styles: [`
-    .ambient-glow {
+    .hero {
+      padding: 8.5rem 0 5rem;
+    }
+    @media (min-width: 768px) {
+      .hero { padding: 10rem 0 6.5rem; }
+    }
+    .hero-glow {
       position: absolute;
-      width: 600px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(14, 165, 233, 0) 70%);
       pointer-events: none;
-      filter: blur(60px);
+      filter: blur(70px);
+      border-radius: 50%;
     }
-    .ambient-glow-emerald {
-      position: absolute;
-      width: 450px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-      filter: blur(60px);
+    .hero-glow-a {
+      width: 520px;
+      height: 320px;
+      top: -80px;
+      left: 10%;
+      background: rgba(29, 78, 216, 0.18);
     }
-    .badge-status {
-      display: inline-flex;
+    .hero-glow-b {
+      width: 420px;
+      height: 320px;
+      top: 40%;
+      right: -80px;
+      background: rgba(94, 234, 212, 0.06);
+    }
+    .hero-grid {
+      display: grid;
+      gap: 3rem;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.825rem;
-      font-weight: 600;
-      color: #34d399;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.25);
     }
-    .badge-location {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-      font-size: 0.825rem;
-      font-weight: 500;
-      color: #94a3b8;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3.5rem;
+      }
     }
-    .hero-title {
-      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .metric-card {
+    .hero-meta {
       display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+    .availability,
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.25rem;
+      border: 1px solid rgba(226, 232, 240, 0.12);
+      background: rgba(30, 41, 59, 0.55);
+    }
+    .availability { color: #b7d0b7; }
+    .location { color: rgba(226, 232, 240, 0.65); }
+    .relocation {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.25rem;
+      border: 1px solid rgba(19, 78, 74, 0.9);
+      background: rgba(19, 78, 74, 0.45);
+      color: #e2e8f0;
+    }
+    .studying {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 0.25rem;
+      border: 1px solid rgba(94, 234, 212, 0.4);
+      background: rgba(94, 234, 212, 0.12);
+      color: #5eead4;
+    }
+    .hero-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #5eead4;
+      margin-bottom: 0.75rem;
+    }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 4.25rem);
+      font-weight: 650;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: #e2e8f0;
+      margin-bottom: 1.1rem;
+      max-width: 12ch;
+    }
+    .hero-tagline {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 500;
+      color: rgba(226, 232, 240, 0.88);
+      margin-bottom: 0.85rem;
+      max-width: 34rem;
+      line-height: 1.45;
+    }
+    .hero-desc {
+      font-size: 0.98rem;
+      color: rgba(226, 232, 240, 0.58);
+      max-width: 34rem;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.25rem;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.1);
+    }
+    @media (min-width: 640px) {
+      .hero-metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     .metric-value {
-      font-family: var(--font-mono);
-      font-size: 1.85rem;
-      font-weight: 800;
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 650;
+      color: #5eead4;
       line-height: 1;
+      margin-bottom: 0.3rem;
     }
     .metric-label {
-      font-size: 0.775rem;
-      color: #94a3b8;
+      font-size: 0.72rem;
+      color: rgba(226, 232, 240, 0.48);
       line-height: 1.3;
     }
-    .terminal-window {
-      background: #090d16;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 0.875rem;
+    .terminal {
+      background: #0c1324;
+      border: 1px solid rgba(94, 234, 212, 0.28);
+      border-radius: 0.4rem;
       overflow: hidden;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.08);
+      box-shadow: 0 24px 50px rgba(2, 6, 23, 0.55);
     }
-    .terminal-header {
+    .terminal-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1rem;
-      background: #0f172a;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      gap: 0.75rem;
+      padding: 0.7rem 1rem;
+      background: #1e293b;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.08);
     }
+    .terminal-dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+    .terminal-dots span {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: #1e40af;
+    }
+    .terminal-dots span:nth-child(2) { background: #5eead4; }
+    .terminal-dots span:nth-child(3) { background: #134e4a; }
     .terminal-title {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: #94a3b8;
-      text-overflow: ellipsis;
+      font-size: 0.7rem;
+      color: rgba(226, 232, 240, 0.5);
       overflow: hidden;
+      text-overflow: ellipsis;
       white-space: nowrap;
-      max-width: 250px;
+    }
+    .terminal-shell {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: rgba(226, 232, 240, 0.35);
     }
     .terminal-body {
-      padding: 1.25rem;
+      padding: 1.15rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      line-height: 1.6;
+      gap: 0.65rem;
+      font-size: 0.78rem;
+      line-height: 1.55;
     }
-    .terminal-divider {
+    .line.dim { color: rgba(226, 232, 240, 0.55); }
+    .prompt { color: #94a3b8; margin-right: 0.35rem; }
+    .prompt.accent { color: #5eead4; }
+    .rule {
       height: 1px;
-      background: rgba(255, 255, 255, 0.06);
-      margin: 0.25rem 0;
+      background: rgba(226, 232, 240, 0.08);
+      margin: 0.15rem 0;
     }
-    .terminal-log-box {
-      background: rgba(16, 185, 129, 0.06);
-      border: 1px solid rgba(16, 185, 129, 0.15);
-      border-radius: 0.5rem;
-      padding: 0.6rem 0.85rem;
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(226, 232, 240, 0.55);
     }
-    .blinking-cursor {
-      display: inline-block;
+    .kv strong {
+      color: #e2e8f0;
+      font-weight: 600;
+      text-align: right;
+    }
+    .kv strong.ok { color: #b7d0b7; }
+    .kv strong.accent { color: #5eead4; }
+    .live-box {
+      background: rgba(19, 78, 74, 0.28);
+      border: 1px solid rgba(19, 78, 74, 0.55);
+      border-radius: 0.3rem;
+      padding: 0.65rem 0.8rem;
+    }
+    .live-label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: #b7d0b7;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .live-box p { color: rgba(226, 232, 240, 0.5); font-size: 0.7rem; }
+    .live-pulse {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: #b7d0b7;
+      animation: pulse 1.5s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .cursor-line {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: rgba(226, 232, 240, 0.55);
+      padding-top: 0.2rem;
+    }
+    .blink {
       width: 7px;
-      height: 15px;
-      background: #38bdf8;
+      height: 14px;
+      background: #5eead4;
       animation: blink 1s step-start infinite;
-      vertical-align: middle;
     }
     @keyframes blink {
       50% { opacity: 0; }
     }
-    .grid { display: grid; }
-    .flex { display: flex; }
-    .flex-col { flex-direction: column; }
-    .gap-4 { gap: 1rem; }
-    .items-center { align-items: center; }
-    .justify-between { justify-content: space-between; }
+    .terminal-note {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.85rem;
+      padding: 0 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: rgba(226, 232, 240, 0.4);
+    }
+    .terminal-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
   `]
 })
 export class HeroComponent implements OnInit, OnDestroy {
@@ -318,7 +413,7 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   public readonly t = this.i18n.t;
   public readonly uptimeSeconds = signal<number>(849210);
-  private timerRef: any = null;
+  private timerRef: ReturnType<typeof setInterval> | null = null;
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
