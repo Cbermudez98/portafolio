@@ -16,6 +16,15 @@
     <meta name="author" content="Cesar Bermudez Sierra" />
     <meta name="theme-color" content="#0F172A" />
 
+    <!-- First visit of the session plays the boot intro (see BootLoaderComponent) -->
+    <script>
+      try {
+        if (!sessionStorage.getItem('cb_booted') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('booting');
+        }
+      } catch (e) {}
+    </script>
+
     <meta property="og:title" content="Cesar Bermudez | Senior Backend Developer" />
     <meta
       property="og:description"

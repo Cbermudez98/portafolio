@@ -518,3 +518,15 @@ pre,
 @media (hover: none) {
   .spotlight { background: radial-gradient(600px at 50% 0%, rgba(29, 78, 216, 0.15), transparent 80%); }
 }
+
+/* Boot intro: freeze the page's own entrance animations until the curtain lifts */
+html.booting {
+  overflow: hidden;
+}
+html.booting .animate-fade-up,
+html.booting .animate-fade-up-delay,
+html.booting .animate-fade-up-delay-2,
+html.booting app-navbar app-logo *,
+html.booting app-footer app-logo * {
+  animation-play-state: paused;
+}

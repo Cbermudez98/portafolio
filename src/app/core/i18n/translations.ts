@@ -594,6 +594,16 @@ export const translations = {
       certIssuer: 'Issuer',
       certDate: 'Date'
     },
+    boot: {
+      ready: 'Loading portfolio',
+      skip: 'Skip intro',
+      lines: [
+        { cmd: 'init', detail: 'runtime · Node.js · Go · Python' },
+        { cmd: 'connect', detail: 'PostgreSQL · Redis · Kafka' },
+        { cmd: 'load', detail: '{roles} roles · {certs} certifications' },
+        { cmd: 'deploy', detail: '{years} years of backend → production' }
+      ]
+    },
     footer: {
       bio: 'Senior Backend Developer specialized in high-performance distributed systems, microservices, cloud infrastructure, and clean architecture.',
       quickLinks: 'Navigation',
@@ -1197,6 +1207,16 @@ export const translations = {
       certName: 'Certificación',
       certIssuer: 'Emisor',
       certDate: 'Fecha'
+    },
+    boot: {
+      ready: 'Cargando portafolio',
+      skip: 'Saltar intro',
+      lines: [
+        { cmd: 'init', detail: 'runtime · Node.js · Go · Python' },
+        { cmd: 'connect', detail: 'PostgreSQL · Redis · Kafka' },
+        { cmd: 'load', detail: '{roles} cargos · {certs} certificaciones' },
+        { cmd: 'deploy', detail: '{years} años de backend → producción' }
+      ]
     },
     footer: {
       bio: 'Desarrollador Backend Senior especializado en sistemas distribuidos de alto rendimiento, microservicios, infraestructura cloud y arquitectura limpia.',

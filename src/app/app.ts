@@ -9,6 +9,7 @@ import { SkillsComponent } from './features/skills/skills.component';
 import { ProjectsComponent } from './features/projects/projects.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { FooterComponent } from './features/footer/footer.component';
+import { BootLoaderComponent } from './shared/components/boot-loader/boot-loader.component';
 import { I18nService } from './core/services/i18n.service';
 import { ScrollRevealService } from './core/services/scroll-reveal.service';
 
@@ -25,7 +26,8 @@ import { ScrollRevealService } from './core/services/scroll-reveal.service';
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    BootLoaderComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
