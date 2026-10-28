@@ -27,7 +27,9 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      # `npm ci` trips on npm's handling of the bundled @emnapi/* deps of the
+      # optional @tailwindcss/oxide-wasm32-wasi package; `npm install` resolves them.
+      - run: npm install --no-audit --no-fund
 
       # Project site lives at https://<user>.github.io/<repo>/
       - run: npx ng build --configuration production --base-href "/${{ github.event.repository.name }}/"
